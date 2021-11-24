@@ -2,12 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+      <profile name="Annotation profile for StandardCharteredMaven" enabled="true">
+        <sourceOutputDir name="${project.basedir}/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="${project.basedir}/target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="StandardCharteredMaven" />
-        <module name="Stancy" />
       </profile>
     </annotationProcessing>
   </component>

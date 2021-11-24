@@ -1,0 +1,181 @@
+Nov 24,2021 11:27:13 [info]  Browser has been initiated successfully
+Nov 24,2021 11:27:13 [info]  Window has been maximized to full screen
+Nov 24,2021 11:27:23 [info]  Validating the page for W3C error check : https://www.sc.com/sg/priority/
+Nov 24,2021 11:27:23 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 11:27:27 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:27:37 [info]  There are 28 results shown after url validation
+Nov 24,2021 11:27:37 [info]  Warning info displayed
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "An img element must have an alt attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Bad character   after <. Probable cause: Unescaped <. Try escaping it as &lt;."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID Layer_2."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID Layer_1-2."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Bad character   after <. Probable cause: Unescaped <. Try escaping it as &lt;."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID Layer_2."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID Layer_1-2."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID Layer_2."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID Layer_1-2."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Duplicate ID ICONS."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)"
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "CSS: Deprecated media feature max-device-width. For guidance, see the Deprecated Media Features section in the current Media Queries specification."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:37 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:38 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:38 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:38 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 11:27:38 [info]  Validating the page for W3C error check : https://www.sc.com/sg/wealth/
+Nov 24,2021 11:27:38 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 11:27:41 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:27:52 [info]  There are 22 results shown after url validation
+Nov 24,2021 11:27:52 [info]  Warning info displayed
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 11:27:52 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 11:27:52 [info]  Validating the page for W3C error check : https://www.sc.com/sg/business/
+Nov 24,2021 11:27:52 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 11:27:56 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:28:06 [info]  There are 8 results shown after url validation
+Nov 24,2021 11:28:06 [info]  Warning info displayed
+Nov 24,2021 11:28:06 [info]  Error message is displayed as "Duplicate ID 4380-solution-group-item-1."
+Nov 24,2021 11:28:06 [info]  Error message is displayed as "Duplicate ID 4381-solution-group-item-1."
+Nov 24,2021 11:28:07 [info]  Validating the page for W3C error check : https://www.sc.com/in/priority/
+Nov 24,2021 11:28:07 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 11:28:10 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:28:20 [info]  There are 1 results shown after url validation
+Nov 24,2021 11:28:30 [info]  Error message is displayed as "Bad value for attribute href on element a: Illegal character in fragment: { is not allowed."
+Nov 24,2021 11:28:30 [info]  Validating the page for W3C error check : https://www.sc.com/in/personal/
+Nov 24,2021 11:28:30 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 11:28:33 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:28:43 [info]  There are 1 results shown after url validation
+Nov 24,2021 11:28:43 [info]  Warning info displayed
+Nov 24,2021 11:28:54 [info]  Validating the page for W3C error check : https://www.sc.com/in/business/ 
+Nov 24,2021 11:28:54 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 11:28:58 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:29:18 [info]  There are 0 results shown after url validation
+Nov 24,2021 11:29:30 [info]  Browser has been initiated successfully
+Nov 24,2021 11:29:30 [info]  Window has been maximized to full screen
+Nov 24,2021 11:29:36 [info]  Validating the page for JS error check : https://www.sc.com/sg/priority/
+Nov 24,2021 11:29:39 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Nov 24,2021 11:29:41 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:30:13 [info]  Progress bar under the card header is complete
+Nov 24,2021 11:30:13 [info]  Report summary has been created successfully
+Nov 24,2021 11:30:13 [info]  JS failed count : 7 Failed
+Nov 24,2021 11:30:13 [info]  JS warning count : 5 Warnings
+Nov 24,2021 11:30:14 [info]  JS passed count : 46 Passed
+Nov 24,2021 11:30:16 [info]  Browser has been initiated successfully
+Nov 24,2021 11:30:16 [info]  Window has been maximized to full screen
+Nov 24,2021 11:30:22 [info]  Validating the page for JS error check : https://www.sc.com/sg/wealth/
+Nov 24,2021 11:30:26 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Nov 24,2021 11:30:27 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:31:04 [info]  Progress bar under the card header is complete
+Nov 24,2021 11:31:04 [info]  Report summary has been created successfully
+Nov 24,2021 11:31:04 [info]  JS failed count : 8 Failed
+Nov 24,2021 11:31:04 [info]  JS warning count : 6 Warnings
+Nov 24,2021 11:31:04 [info]  JS passed count : 45 Passed
+Nov 24,2021 11:31:06 [info]  Browser has been initiated successfully
+Nov 24,2021 11:31:06 [info]  Window has been maximized to full screen
+Nov 24,2021 11:31:12 [info]  Validating the page for JS error check : https://www.sc.com/sg/business/
+Nov 24,2021 11:31:15 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Nov 24,2021 11:31:16 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:31:50 [info]  Progress bar under the card header is complete
+Nov 24,2021 11:31:50 [info]  Report summary has been created successfully
+Nov 24,2021 11:31:50 [info]  JS failed count : 7 Failed
+Nov 24,2021 11:31:50 [info]  JS warning count : 4 Warnings
+Nov 24,2021 11:31:50 [info]  JS passed count : 48 Passed
+Nov 24,2021 11:31:51 [info]  Browser has been initiated successfully
+Nov 24,2021 11:31:52 [info]  Window has been maximized to full screen
+Nov 24,2021 11:31:57 [info]  Validating the page for JS error check : https://www.sc.com/in/priority/
+Nov 24,2021 11:32:01 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Nov 24,2021 11:32:02 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:32:33 [info]  Progress bar under the card header is complete
+Nov 24,2021 11:32:33 [info]  Report summary has been created successfully
+Nov 24,2021 11:32:33 [info]  JS failed count : 7 Failed
+Nov 24,2021 11:32:33 [info]  JS warning count : 4 Warnings
+Nov 24,2021 11:32:33 [info]  JS passed count : 48 Passed
+Nov 24,2021 11:32:35 [info]  Browser has been initiated successfully
+Nov 24,2021 11:32:35 [info]  Window has been maximized to full screen
+Nov 24,2021 11:32:40 [info]  Validating the page for JS error check : https://www.sc.com/in/personal/
+Nov 24,2021 11:32:44 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Nov 24,2021 11:32:46 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:33:14 [info]  Progress bar under the card header is complete
+Nov 24,2021 11:33:14 [info]  Report summary has been created successfully
+Nov 24,2021 11:33:14 [info]  JS failed count : 8 Failed
+Nov 24,2021 11:33:14 [info]  JS warning count : 4 Warnings
+Nov 24,2021 11:33:15 [info]  JS passed count : 47 Passed
+Nov 24,2021 11:33:16 [info]  Browser has been initiated successfully
+Nov 24,2021 11:33:16 [info]  Window has been maximized to full screen
+Nov 24,2021 11:33:24 [info]  Validating the page for JS error check : https://www.sc.com/in/business/ 
+Nov 24,2021 11:33:27 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Nov 24,2021 11:33:29 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 11:33:59 [info]  Progress bar under the card header is complete
+Nov 24,2021 11:33:59 [info]  Report summary has been created successfully
+Nov 24,2021 11:33:59 [info]  JS failed count : 8 Failed
+Nov 24,2021 11:33:59 [info]  JS warning count : 4 Warnings
+Nov 24,2021 11:33:59 [info]  JS passed count : 47 Passed
+Nov 24,2021 12:19:28 [info]  Browser has been initiated successfully
+Nov 24,2021 12:19:28 [info]  Window has been maximized to full screen
+Nov 24,2021 12:19:38 [info]  Validating the page for W3C error check : https://www.sc.com/sg/priority/
+Nov 24,2021 12:19:38 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 12:19:42 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 12:19:52 [info]  There are 28 results shown after url validation
+Nov 24,2021 12:19:52 [info]  Warning info displayed
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "An img element must have an alt attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Bad character   after <. Probable cause: Unescaped <. Try escaping it as &lt;."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID Layer_2."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID Layer_1-2."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Bad character   after <. Probable cause: Unescaped <. Try escaping it as &lt;."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID Layer_2."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID Layer_1-2."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID Layer_2."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID Layer_1-2."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Duplicate ID ICONS."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)"
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "CSS: Deprecated media feature max-device-width. For guidance, see the Deprecated Media Features section in the current Media Queries specification."
+Nov 24,2021 12:19:52 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:53 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:53 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:53 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:53 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:53 [info]  Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Nov 24,2021 12:19:54 [info]  Validating the page for W3C error check : https://www.sc.com/sg/wealth/
+Nov 24,2021 12:19:54 [info]  Entered the standard chartered url for validation into the address bar for validation
+Nov 24,2021 12:19:57 [info]  Clicked on the check button to validate the standard chartered url address
+Nov 24,2021 12:20:07 [info]  There are 22 results shown after url validation
+Nov 24,2021 12:20:07 [info]  Warning info displayed
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "Attribute href not allowed on element a at this point."
+Nov 24,2021 12:20:08 [info]  Error message is displayed as "The element button must not appear as a descendant of the a element."
+Nov 24,2021 12:20:09 [info]  Validating the page for W3C error check : https://www.sc.com/sg/business/
+Nov 24,2021 12:20:09 [info]  Entered the standard chartered url for validation into the address bar for validation

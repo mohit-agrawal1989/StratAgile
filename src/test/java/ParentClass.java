@@ -1,3 +1,4 @@
+import au.com.bytecode.opencsv.CSVReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -5,50 +6,78 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utility.ExecutionLog;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;;
+import java.util.HashMap;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ParentClass {
 
     enum WebBrowser {Chrome}
+
     public static WebDriver driver;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
     String os = "windows";
-    String type = "no";
-    static WebDriverWait wait;
+    String type = "yes";
+    public static WebDriverWait wait;
+    public String country = "", filePath = "";
+    Object[][] data = null;
+
+    String[] countryArray;
+    public static String directoryPath = "", date;
+    static String path = "config.properties";
+
+    public HashMap<Integer, String> map = new HashMap<Integer, String>();
 
 
-    @Test (priority = 0)
-    public void w3cValidationCheck() {
-        W3cValidationErrorCheck.w3cValidation(); // Checking the w3c validation of warnings and errors
+    @Test(priority = 0, dataProvider = "testData")
+    public void w3cValidationCheck(String[] countryURL) {
+        W3cValidationErrorCheck.w3cValidation(countryURL); // Checking the w3c validation of warnings and errors
     }
 
-    @Test (priority = 1)
-    public void brokenLinkCheck() throws FileNotFoundException, UnsupportedEncodingException {
-        BrokenLinkTest.brokenLinkValidationCheck(); // Checking for broken links on Standard Chartered home page
+    @Test (priority = 1, dataProvider = "testData")
+    public void jsValidationCheck(String[] countryURL){
+        JsValidationCheck.jsValidation(countryURL); // Checking for javascript warnings and errors
     }
 
-    @Test (priority = 2)
-    public void jsValidationCheck(){
-        JsValidationCheck.jsValidation(); // Checking for javascript warnings and errors
+    @Test (priority = 2, dataProvider = "testData")
+    public void brokenLinkCheck(String[] countryURL){
+        BrokenLinkTest.brokenLinkValidationCheck(countryURL); // Checking for broken links on Standard Chartered home page
     }
 
-    @Test (priority = 3)
-    public void consoleLogsCheck() throws FileNotFoundException, UnsupportedEncodingException {
-        ConsoleLogsValidationCheck.consoleLogsValidation(); // Checking the console log errors
+    @Test (priority = 3, dataProvider = "testData")
+    public void brokenImagesCheck(String[] countryURL)  {
+        BrokenImageTest.brokenImageValidationCheck(countryURL); // Checking for broken images on Standard Chartered home page
     }
 
-    @Test (priority = 4)
-    public void responseDimensionCheck(){
-        ResponsiveDimensionCheck.responsiveDimensionValidation(); // Checking for responsive dimension
+    @Test (priority = 4, dataProvider = "testData")
+    public void responseDimensionCheckBrokenLinks(String[] countryURL){
+        ResponseDimensionCheckBrokenLinks.responsiveDimensionBrokenLinksValidation(countryURL); // Checking for responsive dimension
     }
+
+    @Test (priority = 5, dataProvider = "testData")
+    public void responseDimensionCheckBrokenImages(String[] countryURL){
+        ResponseDimensionCheckBrokenImages.responsiveDimensionBrokenLinksValidation(countryURL); // Checking for responsive dimension
+    }
+
+    @Test (priority = 6, dataProvider = "testData")
+    public void consoleLogsCheck(String[] countryURL) {
+        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
+    }
+
+    @Test (priority = 7, dataProvider = "testData")
+    public void responsiveDimensionConsoleLogs(String[] countryURL) {
+        ResponsiveDimensionConsoleLogsCheck.responsiveDimensionConsoleLogsCheck(countryURL); // Checking the console log errors
+    }
+
 
     @BeforeTest
     public void setup() {
@@ -57,10 +86,10 @@ public class ParentClass {
 
             if (os.equalsIgnoreCase("Windows")) {
                 if (driverType.equalsIgnoreCase("chrome"))
-                    System.setProperty("webdriver.chrome.driver", getPath() + "//drivers//chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", getPath() + File.separator + "drivers" + File.separator + "chromedriver.exe");
             } else if (os.equalsIgnoreCase("Mac")) {
                 if (driverType.equalsIgnoreCase("chrome"))
-                    System.setProperty("webdriver.chrome.driver", getPath() + "//drivers//chromedriver_mac");
+                    System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_mac");
             }
 
             //Check if desired browser is Chrome
@@ -69,28 +98,27 @@ public class ParentClass {
                 options.addArguments("--no-sandbox");
                 options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
+                options.addArguments("--incognito");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--window-size=1600x900");
-                if (type.equalsIgnoreCase("yes"))
-                    driver = new ChromeDriver(options);
-                else
-                    driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
+                country = System.getProperty("country").toLowerCase();
+                //filePath = System.getProperty("filePath");
+                System.out.println("Country: " + country);
+                System.out.println("FilePath: " + filePath);
             }
 
             //If browser type is not matched, exit from the system
             else {
                 String path = getPath();
-                System.setProperty("webdriver.chrome.driver", path + "//drivers//chromedriver");
+                System.setProperty("webdriver.chrome.driver", path + File.separator + "drivers" + File.separator + "chromedriver");
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
                 options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--window-size=1325x744");
-                if (type.equalsIgnoreCase("yes"))
-                    driver = new ChromeDriver(options);
-                else
-                    driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             }
         }
         ExecutionLog.log("Browser has been initiated successfully");
@@ -98,14 +126,127 @@ public class ParentClass {
         ExecutionLog.log("Window has been maximized to full screen");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
+
+        //country = "sg,in".toLowerCase();
+        countryArray = country.split(",");
+        for (int i = 0; i < countryArray.length; i++) {
+            File file = new File( readApplicationFile("outputPath", path) + File.separator + "" + countryArray[i]);
+            file.mkdir();
+            Date d = new java.util.Date(System.currentTimeMillis());
+            String format = "yyyy-MM-dd hh-mm-ss";
+            DateFormat dateFormatter = new SimpleDateFormat(format);
+            date = dateFormatter.format(d);
+            directoryPath = readApplicationFile("outputPath", path) + File.separator + "" + countryArray[i] + "" + File.separator + "" + date;
+            File dir = new File(readApplicationFile("outputPath", path) + File.separator + "" + countryArray[i] + "" + File.separator + "" + date);
+            dir.mkdir();
+        }
     }
 
+
+    @DataProvider(name = "testData")
+    public Object[][] userData() {
+        try {
+            File dir = new File(readApplicationFile("inputPath", path));
+            int numberOfSubFolders = 0;
+            File listDir[] = dir.listFiles();
+            for (int i = 0; i < listDir.length; i++) {
+                if (listDir[i].isDirectory()) {
+                    numberOfSubFolders++;
+                }
+            }
+            System.out.println("No of directories: " + numberOfSubFolders);
+
+            int pageCount = 0;
+            for (int i = 0; i < numberOfSubFolders; i++) {
+                CSVReader reader = new CSVReader(new FileReader(readApplicationFile("inputPath", path) + File.separator + countryArray[i] + File.separator + "url.csv"));
+                String[] nextLine;
+                //reads one line at a time
+                while ((nextLine = reader.readNext()) != null) {
+                    for (String token : nextLine) {
+                        String[] countryURLToNavigate = token.split(", ");
+                        if (countryURLToNavigate.length > pageCount) {
+                            pageCount = countryURLToNavigate.length;
+                        }
+                        map.put(i, countryArray[i] + "# " + token);
+                        System.out.print(token);
+                    }
+                    System.out.print("\n");
+
+                }
+            }
+            data = new Object[countryArray.length][pageCount];
+            for (int m = 0; m < map.size(); m++) {
+                data[m][0] = map.get(m);
+            }
+
+
+//        Scanner sc = new Scanner(new File(filePath));
+//            sc.useDelimiter(", ");   //sets the delimiter pattern
+//            int count = 0;
+//            data = new Object[2][3];
+//            while (sc.hasNext())  //returns a boolean value
+//            {
+//                String x = sc.next();
+//                System.out.print(x);  //find and returns the next complete token from this scanner
+//                data[0][count] = x;
+//                count++;
+//            }
+//            sc.close();  //closes the scanner
+
+//                filename = new FileInputStream(filePath);
+//                workbook = new XSSFWorkbook(filename);
+//                sheet = workbook.getSheetAt(0);
+//                Row_count = sheet.getLastRowNum();
+//                System.out.println("Row Count: " +Row_count);
+//                Col_count = sheet.getRow(0).getLastCellNum();
+
+            //data = new Object[count][3];
+
+//                for(int i = 0; i < count; i++){
+//                    String country = sheet.getRow(i).getCell(0).getStringCellValue().trim(); // Country
+//                    System.out.println("Country "+country);
+//                    System.out.println("");
+//                    String [] urlArray = sheet.getRow(i).getCell(1).getStringCellValue().trim().split(", "); // URL
+//                    for(int j = 0; j < urlArray.length; j++){
+//                        data[i][j] = country + "# "+urlArray[j];
+//                        System.out.println("++ "+data[i][j]);
+//                        System.out.println("");
+//                    }
+//                    //data[i][1] = sheet.getRow(i).getCell(1).getStringCellValue().trim(); // URL
+//
+//                }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //workbook.close();
+        }
+        return data;
+    }
+
+
     @AfterTest
-    public void exit(){
+    public void exit() {
         driver.quit();
     }
 
-    public String getPath() {
+    public static String readApplicationFile(String key, String file){
+        String value = "";
+        String path =  getPath();
+        try{
+            Properties prop = new Properties();
+            File f = new File(path + "/src/main/resources/configuration/" +file);
+            if(f.exists()){
+                prop.load(new FileInputStream(f));
+                value = prop.getProperty(key);
+            }
+        }
+        catch(Exception e){
+            System.out.println("Failed to read from application.properties file.");
+        }
+        return value;
+    }
+    public static String getPath() {
         String path = "";
         File file = new File("");
         String absolutePathOfFirstFile = file.getAbsolutePath();

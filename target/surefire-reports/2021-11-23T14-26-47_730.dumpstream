@@ -1,0 +1,4 @@
+# Created at 2021-11-23T14:26:51.154
+Boot Manifest-JAR contains absolute paths in classpath 'D:\upwork\Stancy\StratAgile\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+
