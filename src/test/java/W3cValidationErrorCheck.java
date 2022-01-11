@@ -7,6 +7,7 @@ import org.testng.asserts.SoftAssert;
 import utility.ExecutionLog;
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.List;
 
 public class W3cValidationErrorCheck extends ParentClass {
@@ -16,6 +17,8 @@ public class W3cValidationErrorCheck extends ParentClass {
     static String path = "config.properties";
     public static void w3cValidation(String[] countryURL) {
         try {
+            String[] splitResponsiveData = countryURL[0].split("@@");
+            countryURL[0] = splitResponsiveData[0].trim();
             String[] country = countryURL[0].split("# ");
             System.out.println("Country: " + country[0]);
             directoryPath = ParentClass.readApplicationFile("outputPath", path) + File.separator + "" + country[0] + "" + File.separator + "" + date;

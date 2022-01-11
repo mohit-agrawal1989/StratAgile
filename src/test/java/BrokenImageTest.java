@@ -19,6 +19,8 @@ public class BrokenImageTest extends ParentClass {
 
     public static void brokenImageValidationCheck(String[] countryURL) {
         try {
+            String[] splitResponsiveData = countryURL[0].split("@@");
+            countryURL[0] = splitResponsiveData[0].trim();
             String[] country = countryURL[0].split("# ");
             System.out.println("Country: " + country[0]);
             directoryPath = ParentClass.readApplicationFile("outputPath", path) + File.separator + "" + country[0] + "" + File.separator + "" + date;

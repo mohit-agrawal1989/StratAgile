@@ -1,0 +1,9 @@
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/in/priority/
+Report summary has been created successfully
+JS failed count : 7 Failed
+JS warning count : 3 Warnings
+JS passed count : 49 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/in/personal/
+Error occur during execution

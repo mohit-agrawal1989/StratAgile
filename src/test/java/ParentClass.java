@@ -12,9 +12,7 @@ import utility.ExecutionLog;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;;
-import java.util.HashMap;
-import java.util.Properties;
+import java.util.*;;
 import java.util.concurrent.TimeUnit;
 
 public class ParentClass {
@@ -26,7 +24,7 @@ public class ParentClass {
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
     String os = "windows";
-    String type = "yes";
+    String type = "no";
     public static WebDriverWait wait;
     public String country = "", filePath = "";
     Object[][] data = null;
@@ -34,8 +32,11 @@ public class ParentClass {
     String[] countryArray;
     public static String directoryPath = "", date;
     static String path = "config.properties";
+    static String responsivePath = "responsiveDevices.properties";
+    public Map<Integer, String> map = new LinkedHashMap<Integer, String>();
+    public Map<Object, Object> responsiveDeviceData = new LinkedHashMap<>();
 
-    public HashMap<Integer, String> map = new HashMap<Integer, String>();
+    public String responsiveDataCollection = "";
 
 
     @Test(priority = 0, dataProvider = "testData")
@@ -70,7 +71,7 @@ public class ParentClass {
 
     @Test (priority = 6, dataProvider = "testData")
     public void consoleLogsCheck(String[] countryURL) {
-        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
+       // ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
     }
 
     @Test (priority = 7, dataProvider = "testData")
@@ -102,24 +103,25 @@ public class ParentClass {
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--window-size=1600x900");
                 driver = new ChromeDriver(options);
+                //country = "sg,in".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
-                //filePath = System.getProperty("filePath");
+                filePath = System.getProperty("filePath");
                 System.out.println("Country: " + country);
                 System.out.println("FilePath: " + filePath);
             }
 
-            //If browser type is not matched, exit from the system
-            else {
-                String path = getPath();
-                System.setProperty("webdriver.chrome.driver", path + File.separator + "drivers" + File.separator + "chromedriver");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--no-sandbox");
-                options.addArguments("--headless");
-                options.addArguments("--disable-gpu");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--window-size=1325x744");
-                driver = new ChromeDriver(options);
-            }
+//            //If browser type is not matched, exit from the system
+//            else {
+//                String path = getPath();
+//                System.setProperty("webdriver.chrome.driver", path + File.separator + "drivers" + File.separator + "chromedriver");
+//                ChromeOptions options = new ChromeOptions();
+//                options.addArguments("--no-sandbox");
+//                options.addArguments("--headless");
+//                options.addArguments("--disable-gpu");
+//                options.addArguments("--disable-dev-shm-usage");
+//                options.addArguments("--window-size=1325x744");
+//                driver = new ChromeDriver(options);
+//            }
         }
         ExecutionLog.log("Browser has been initiated successfully");
         driver.manage().window().maximize();
@@ -127,7 +129,6 @@ public class ParentClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
 
-        //country = "sg,in".toLowerCase();
         countryArray = country.split(",");
         for (int i = 0; i < countryArray.length; i++) {
             File file = new File( readApplicationFile("outputPath", path) + File.separator + "" + countryArray[i]);
@@ -140,6 +141,8 @@ public class ParentClass {
             File dir = new File(readApplicationFile("outputPath", path) + File.separator + "" + countryArray[i] + "" + File.separator + "" + date);
             dir.mkdir();
         }
+        // Adding the responsive dimension data along with the other data
+        readResponsiveDeviceFile(responsivePath);
     }
 
 
@@ -174,10 +177,18 @@ public class ParentClass {
 
                 }
             }
-            data = new Object[countryArray.length][pageCount];
+
+            data = new Object[countryArray.length][pageCount + responsiveDeviceData.size()];
             for (int m = 0; m < map.size(); m++) {
-                data[m][0] = map.get(m);
+                data[m][0] = map.get(m) + responsiveDataCollection;
             }
+
+
+//  Original Code
+//            data = new Object[countryArray.length][pageCount];
+//            for (int m = 0; m < map.size(); m++) {
+//                data[m][0] = map.get(m);
+//            }
 
 
 //        Scanner sc = new Scanner(new File(filePath));
@@ -232,7 +243,7 @@ public class ParentClass {
 
     public static String readApplicationFile(String key, String file){
         String value = "";
-        String path =  getPath();
+        String path = getPath();
         try{
             Properties prop = new Properties();
             File f = new File(path + "/src/main/resources/configuration/" +file);
@@ -242,9 +253,32 @@ public class ParentClass {
             }
         }
         catch(Exception e){
-            System.out.println("Failed to read from application.properties file.");
+            System.out.println("Failed to read from config.properties file.");
         }
         return value;
+    }
+
+    public void readResponsiveDeviceFile(String filePath){
+        String path = getPath();
+        try{
+            Properties prop = new Properties();
+            File file = new File(path + "/src/main/resources/configuration/" +filePath);
+            if(file.exists()){
+                prop.load(new FileInputStream(file));
+                int i = 0;
+                for(Map.Entry<Object, Object> entry: prop.entrySet()){
+                    String responsiveDevice = entry.getKey().toString();
+                    String responsiveDimension = entry.getValue().toString();
+                    responsiveDeviceData.put(i, entry.getKey()+ "%%" +entry.getValue());
+                    responsiveDataCollection = responsiveDataCollection + "@@" + entry.getKey().toString() + "%%" + entry.getValue().toString().trim();
+                    System.out.println(responsiveDevice+" : "+responsiveDimension);
+                    i++;
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println("Failed to read from responsiveDevices.properties file.");
+        }
     }
     public static String getPath() {
         String path = "";

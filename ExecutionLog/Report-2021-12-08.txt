@@ -1,0 +1,13 @@
+Dec 08,2021 23:35:56 [info]  Browser has been initiated successfully
+Dec 08,2021 23:35:56 [info]  Window has been maximized to full screen
+Dec 08,2021 23:36:00 [info]  Validating the page for W3C error check : https://www.sc.com/sg/priority/
+Dec 08,2021 23:36:00 [info]  Entered the standard chartered url for validation into the address bar for validation
+Dec 08,2021 23:36:04 [info]  Clicked on the check button to validate the standard chartered url address
+Dec 08,2021 23:37:27 [info]  Browser has been initiated successfully
+Dec 08,2021 23:37:27 [info]  Window has been maximized to full screen
+Dec 08,2021 23:49:51 [info]  Browser has been initiated successfully
+Dec 08,2021 23:49:51 [info]  Window has been maximized to full screen
+Dec 08,2021 23:57:34 [info]  Browser has been initiated successfully
+Dec 08,2021 23:57:35 [info]  Window has been maximized to full screen
+Dec 08,2021 23:59:20 [info]  Browser has been initiated successfully
+Dec 08,2021 23:59:20 [info]  Window has been maximized to full screen

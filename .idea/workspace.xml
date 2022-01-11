@@ -4,270 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bc4c033-0d16-45f0-b9da-87f6bfd391ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ExecutionLog/Report-2021-11-23.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ExecutionLog/Report-2021-11-24.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-23T14-26-47_730.dumpstream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-23T15-43-57_253-jvmRun1.dump" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-23T15-43-57_253-jvmRun1.dumpstream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-23T15-43-57_253.dumpstream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-24T11-27-08_967-jvmRun1.dump" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-24T11-27-08_967-jvmRun1.dumpstream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/2021-11-24T11-27-08_967.dumpstream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/StandardCharteredMaven.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrokenLinkReport.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleErrorReport.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExecutionLog/Report-2021-11-11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ExecutionLog/Report-2021-11-11.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StandardCharteredMaven.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/drivers/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/chromedriver_win32 (3).zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BrokenLinkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BrokenLinkTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ConsoleLogsValidationCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ConsoleLogsValidationCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/JsValidationCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JsValidationCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ParentClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParentClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ResponsiveDimensionCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/W3cValidationErrorCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/W3cValidationErrorCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BrokenLinkTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrokenLinkTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ConsoleLogsValidationCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ConsoleLogsValidationCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/JsValidationCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/JsValidationCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ParentClass$WebBrowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParentClass$WebBrowser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ParentClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParentClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ResponsiveDimensionCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/W3cValidationErrorCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/W3cValidationErrorCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
-    </list>
+    <list default="true" id="42016511-0c37-4b26-8a34-daa6c0964338" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="21JRqwtsDi5oEOyy3k0IeVfxi2O" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="23UtXCUbYnmbVk8xa0vFjWNoA06" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3bc4c033-0d16-45f0-b9da-87f6bfd391ef" name="Changes" comment="" />
-      <created>1637657402608</created>
+      <changelist id="42016511-0c37-4b26-8a34-daa6c0964338" name="Changes" comment="" />
+      <created>1641800532172</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1637657402608</updated>
+      <updated>1641800532172</updated>
     </task>
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.poi:poi-ooxml-schemas" />
-    <option featureType="dependencySupport" implementationName="java:com.paulhammant:ngwebdriver" />
-    <option featureType="dependencySupport" implementationName="java:com.opera:operalaunchers" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.xmlbeans:xmlbeans" />
-    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest-core" />
-    <option featureType="dependencySupport" implementationName="java:xalan:xalan" />
-    <option featureType="dependencySupport" implementationName="java:org.nibor.autolink:autolink" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-exec" />
-    <option featureType="dependencySupport" implementationName="java:com.squareup.okhttp3:okhttp" />
-    <option featureType="dependencySupport" implementationName="java:com.google.j2objc:j2objc-annotations" />
-    <option featureType="dependencySupport" implementationName="java:net.sourceforge.htmlunit:htmlunit-core-js" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-edge-driver" />
-    <option featureType="dependencySupport" implementationName="java:com.google.code.gson:gson" />
-    <option featureType="dependencySupport" implementationName="java:org.aspectj:aspectjweaver" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-formatter" />
-    <option featureType="dependencySupport" implementationName="java:xpp3:xpp3_min" />
-    <option featureType="dependencySupport" implementationName="java:org.imgscalr:imgscalr-lib" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml:classmate" />
-    <option featureType="dependencySupport" implementationName="java:commons-io:commons-io" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty:jetty-xml" />
-    <option featureType="dependencySupport" implementationName="java:com.codeborne:phantomjsdriver" />
-    <option featureType="dependencySupport" implementationName="java:com.zaxxer:SparseBitSet" />
-    <option featureType="dependencySupport" implementationName="java:xerces:xercesImpl" />
-    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest-library" />
-    <option featureType="dependencySupport" implementationName="java:com.google.errorprone:error_prone_annotations" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-autolink" />
-    <option featureType="dependencySupport" implementationName="java:net.sourceforge.cssparser:cssparser" />
-    <option featureType="dependencySupport" implementationName="java:org.webjars:jquery" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-jekyll-tag" />
-    <option featureType="dependencySupport" implementationName="java:net.sourceforge.htmlunit:neko-htmlunit" />
-    <option featureType="dependencySupport" implementationName="java:org.freemarker:freemarker" />
-    <option featureType="dependencySupport" implementationName="java:org.objenesis:objenesis" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:jetty-repacked" />
-    <option featureType="dependencySupport" implementationName="java:junit:junit" />
-    <option featureType="dependencySupport" implementationName="java:com.openhtmltopdf:openhtmltopdf-rtl-support" />
-    <option featureType="dependencySupport" implementationName="java:com.openhtmltopdf:openhtmltopdf-jsoup-dom-converter" />
-    <option featureType="dependencySupport" implementationName="java:org.ini4j:ini4j" />
-    <option featureType="dependencySupport" implementationName="java:org.glassfish.web:javax.el" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark" />
-    <option featureType="dependencySupport" implementationName="java:com.google.inject:guice" />
-    <option featureType="dependencySupport" implementationName="java:javax.el:javax.el-api" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-ins" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:htmlunit-driver" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jcl" />
-    <option featureType="dependencySupport" implementationName="java:commons-net:commons-net" />
-    <option featureType="dependencySupport" implementationName="java:io.appium:java-client" />
-    <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
-    <option featureType="dependencySupport" implementationName="java:org.openpnp:opencv" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty:jetty-http" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpcore" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-java" />
-    <option featureType="dependencySupport" implementationName="java:net.sourceforge.jexcelapi:jxl" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-html-parser" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-lang3" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-superscript" />
-    <option featureType="dependencySupport" implementationName="java:io.vavr:vavr-match" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-tables" />
-    <option featureType="dependencySupport" implementationName="java:com.github.virtuald:curvesapi" />
-    <option featureType="dependencySupport" implementationName="java:io.cucumber:cucumber-jvm-deps" />
-    <option featureType="dependencySupport" implementationName="java:org.jboss.logging:jboss-logging" />
-    <option featureType="dependencySupport" implementationName="java:org.jsoup:jsoup" />
-    <option featureType="dependencySupport" implementationName="java:commons-collections:commons-collections" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-gfm-tables" />
-    <option featureType="dependencySupport" implementationName="java:org.ow2.asm:asm" />
-    <option featureType="dependencySupport" implementationName="java:org.slf4j:slf4j-api" />
-    <option featureType="dependencySupport" implementationName="java:org.w3c.css:sac" />
-    <option featureType="dependencySupport" implementationName="java:es.nitaur.markdown:txtmark" />
-    <option featureType="dependencySupport" implementationName="java:com.google.guava:guava" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.poi:poi" />
-    <option featureType="dependencySupport" implementationName="java:org.yaml:snakeyaml" />
-    <option featureType="dependencySupport" implementationName="java:org.fluentlenium:fluentlenium-core" />
-    <option featureType="dependencySupport" implementationName="java:com.ibm.icu:icu4j" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty.websocket:websocket-api" />
-    <option featureType="dependencySupport" implementationName="java:io.cucumber:cucumber-core" />
-    <option featureType="dependencySupport" implementationName="java:io.cucumber:tag-expressions" />
-    <option featureType="dependencySupport" implementationName="java:com.openhtmltopdf:openhtmltopdf-core" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-math3" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-collections4" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-expression" />
-    <option featureType="dependencySupport" implementationName="java:net.sf.opencsv:opencsv" />
-    <option featureType="dependencySupport" implementationName="java:com.openhtmltopdf:openhtmltopdf-pdfbox" />
-    <option featureType="dependencySupport" implementationName="java:io.cucumber:gherkin" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpclient" />
-    <option featureType="dependencySupport" implementationName="java:net.sourceforge.htmlunit:htmlunit" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-pdf-converter" />
-    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-core" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty:jetty-client" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.ant:ant" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-escaped-character" />
-    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty.websocket:websocket-common" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-xwiki-macros" />
-    <option featureType="dependencySupport" implementationName="java:ru.yandex.qatools.ashot:ashot" />
-    <option featureType="dependencySupport" implementationName="java:javax.inject:javax.inject" />
-    <option featureType="dependencySupport" implementationName="java:commons-codec:commons-codec" />
-    <option featureType="dependencySupport" implementationName="java:com.beust:jcommander" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty.websocket:websocket-client" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-wikilink" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-util" />
-    <option featureType="dependencySupport" implementationName="java:xml-apis:xml-apis" />
-    <option featureType="dependencySupport" implementationName="java:org.codehaus.mojo:animal-sniffer-annotations" />
-    <option featureType="dependencySupport" implementationName="java:commons-validator:commons-validator" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-footnotes" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.pdfbox:fontbox" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-text" />
-    <option featureType="dependencySupport" implementationName="java:javax.validation:validation-api" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-profile-pegdown" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-gfm-users" />
-    <option featureType="dependencySupport" implementationName="java:net.jcip:jcip-annotations" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-emoji" />
-    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest-all" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-beans" />
-    <option featureType="dependencySupport" implementationName="java:com.squareup.okio:okio" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-compress" />
-    <option featureType="dependencySupport" implementationName="java:commons-beanutils:commons-beanutils-core" />
-    <option featureType="dependencySupport" implementationName="java:com.jhlabs:filters" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-gfm-tasklist" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-chrome-driver" />
-    <option featureType="dependencySupport" implementationName="java:joda-time:joda-time" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-aside" />
-    <option featureType="dependencySupport" implementationName="java:org.testng:testng" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.ant:ant-launcher" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-firefox-driver" />
-    <option featureType="dependencySupport" implementationName="java:org.asciidoctor:asciidoctor-java-integration" />
-    <option featureType="dependencySupport" implementationName="java:com.googlecode.lambdaj:lambdaj" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-api" />
-    <option featureType="dependencySupport" implementationName="java:commons-logging:commons-logging" />
-    <option featureType="dependencySupport" implementationName="java:cglib:cglib-nodep" />
-    <option featureType="dependencySupport" implementationName="java:org.checkerframework:checker-compat-qual" />
-    <option featureType="dependencySupport" implementationName="java:com.google.jimfs:jimfs" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-anchorlink" />
-    <option featureType="dependencySupport" implementationName="java:com.typesafe:config" />
-    <option featureType="dependencySupport" implementationName="java:net.serenity-bdd:serenity-core" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-opera-driver" />
-    <option featureType="dependencySupport" implementationName="java:xmlpull:xmlpull" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-all" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-typographic" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.pdfbox:pdfbox" />
-    <option featureType="dependencySupport" implementationName="java:xalan:serializer" />
-    <option featureType="dependencySupport" implementationName="java:aopalliance:aopalliance" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-yaml-front-matter" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-youtrack-converter" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-server" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-ie-driver" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.poi:poi-ooxml" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-gfm-strikethrough" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-support" />
-    <option featureType="dependencySupport" implementationName="java:com.google.code.findbugs:jsr305" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpmime" />
-    <option featureType="dependencySupport" implementationName="java:info.cukes:cucumber-html" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-toc" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty:jetty-io" />
-    <option featureType="dependencySupport" implementationName="java:com.thoughtworks.xstream:xstream" />
-    <option featureType="dependencySupport" implementationName="java:commons-jxpath:commons-jxpath" />
-    <option featureType="dependencySupport" implementationName="java:commons-beanutils:commons-beanutils" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-context" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-jira-converter" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-remote-driver" />
-    <option featureType="dependencySupport" implementationName="java:io.vavr:vavr" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-abbreviation" />
-    <option featureType="dependencySupport" implementationName="java:net.serenity-bdd:serenity-report-resources" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aop" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-gfm-issues" />
-    <option featureType="dependencySupport" implementationName="java:commons-digester:commons-digester" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-definition" />
-    <option featureType="dependencySupport" implementationName="java:org.jruby:jruby-complete" />
-    <option featureType="dependencySupport" implementationName="java:com.opera:operadriver" />
-    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-validator" />
-    <option featureType="dependencySupport" implementationName="java:org.seleniumhq.selenium:selenium-safari-driver" />
-    <option featureType="dependencySupport" implementationName="java:org.eclipse.jetty:jetty-util" />
-    <option featureType="dependencySupport" implementationName="java:org.awaitility:awaitility" />
-    <option featureType="dependencySupport" implementationName="java:javax.servlet:javax.servlet-api" />
-    <option featureType="dependencySupport" implementationName="java:cglib:cglib" />
-    <option featureType="dependencySupport" implementationName="java:org.codehaus.groovy:groovy" />
-    <option featureType="dependencySupport" implementationName="java:com.vladsch.flexmark:flexmark-ext-jekyll-front-matter" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

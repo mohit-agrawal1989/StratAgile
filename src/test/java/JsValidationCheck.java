@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.ExecutionLog;
@@ -14,6 +15,8 @@ public class JsValidationCheck extends ParentClass {
 
     public static void jsValidation(String[] countryURL) {
         try {
+            String[] splitResponsiveData = countryURL[0].split("@@");
+            countryURL[0] = splitResponsiveData[0].trim();
             String[] country = countryURL[0].split("# ");
             System.out.println("Country: " + country[0]);
             directoryPath = ParentClass.readApplicationFile("outputPath", path) + File.separator + "" + country[0] + "" + File.separator + "" + date;
@@ -28,7 +31,10 @@ public class JsValidationCheck extends ParentClass {
                     String newUrl = countryURLToNavigate[x];
                     driver.manage().deleteAllCookies();
                     driver.quit();
-                    driver = new ChromeDriver();
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--headless");
+                    driver = new ChromeDriver(options);
                     ExecutionLog.log("Browser has been initiated successfully");
                     driver.manage().window().maximize();
                     ExecutionLog.log("Window has been maximized to full screen");

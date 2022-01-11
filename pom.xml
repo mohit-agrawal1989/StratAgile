@@ -10,6 +10,7 @@
 
     <properties>
         <country>${country}</country>
+        <!--        <filePath>${filePath}</filePath>-->
     </properties>
 
     <build>
@@ -111,3 +112,4 @@
     </dependencies>
 
 </project>
+
