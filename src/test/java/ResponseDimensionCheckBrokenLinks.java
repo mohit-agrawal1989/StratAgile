@@ -4,7 +4,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import utility.ExecutionLog;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
@@ -14,7 +20,7 @@ import java.util.List;
 
 public class ResponseDimensionCheckBrokenLinks extends ParentClass {
     private static PrintWriter writer;
-    static boolean linkCheck = false;
+    static boolean linkCheck = false, parentLinkExecution;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     static HttpURLConnection huc = null;
     static int responseCode = 200;
@@ -46,6 +52,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                         System.out.println("URL to be hit: " + countryURLToNavigate[x]);
                         String newUrl = countryURLToNavigate[x];
                         driver.navigate().to(newUrl);
+                        writer.println("Validating the Page : " + newUrl);
                         new WebDriverWait(driver, 60).until(webDriver ->
                                 js.executeScript("return document.readyState").equals("complete"));
                         String[] splitResolution = splitResponsiveDeviceAndResolution[1].split("\\*");
@@ -53,6 +60,12 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                         ExecutionLog.log("Current window has been resized to the dimension of "+splitResponsiveDeviceAndResolution[0]+": "+splitResolution[0]+"*"+splitResolution[0]+"");
                         driver.manage().window().setSize(dimension);
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")));
+                        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+                        BufferedImage image = screenshot.getImage();
+                        dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenLinkReport" + File.separator + "Screenshots");
+                        dir.mkdir();
+                        ImageIO.write(image, "png",
+                                new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenLinkReport" + File.separator + "Screenshots" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
                         driver.findElement(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")).click();
                         ExecutionLog.log("Clicked on the hamburger menu of mobile view");
                         driver.findElement(By.xpath("//*[contains(@class,'menu')]")).isDisplayed();
@@ -69,10 +82,13 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                             List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
                             ExecutionLog.log("There are " + allLinks.size() + " url to be verified for broken links");
                             Iterator<WebElement> iterator = allLinks.iterator();
-                            while (iterator.hasNext()) {
-
-                                url = iterator.next().getAttribute("href");
-
+                            do {
+                                if(parentLinkExecution){
+                                    parentLinkExecution = false;
+                                    url = newUrl;
+                                }else{
+                                    url = iterator.next().getAttribute("href");
+                                }
                                 if (url == null || url.isEmpty()) {
                                     linkCheck = true;
                                     ExecutionLog.log(url + " URL is either not configured for anchor tag or it is empty");
@@ -102,7 +118,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                                     writer.println(url + " This url threw the error");
                                     e.printStackTrace();
                                 }
-                            }
+                            }while (iterator.hasNext());
                             if (!linkCheck) {
                                 writer.println("No broken link found in the execution");
                             }

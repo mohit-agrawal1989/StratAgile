@@ -24,8 +24,8 @@ public class ParentClass {
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
     String os = "windows";
-    String type = "no";
-    public static WebDriverWait wait;
+    String type = "yes";
+    public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
     Object[][] data = null;
 
@@ -66,12 +66,12 @@ public class ParentClass {
 
     @Test (priority = 5, dataProvider = "testData")
     public void responseDimensionCheckBrokenImages(String[] countryURL){
-        ResponseDimensionCheckBrokenImages.responsiveDimensionBrokenLinksValidation(countryURL); // Checking for responsive dimension
+        ResponseDimensionCheckBrokenImages.responsiveDimensionBrokenImagesValidation(countryURL); // Checking for responsive dimension
     }
 
     @Test (priority = 6, dataProvider = "testData")
     public void consoleLogsCheck(String[] countryURL) {
-       // ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
+        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
     }
 
     @Test (priority = 7, dataProvider = "testData")
@@ -97,13 +97,14 @@ public class ParentClass {
             if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
-                options.addArguments("--headless");
+                if(type.equalsIgnoreCase("Yes"))
+                    options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--incognito");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--window-size=1600x900");
                 driver = new ChromeDriver(options);
-                //country = "sg,in".toLowerCase();
+//                country = "sg".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
                 filePath = System.getProperty("filePath");
                 System.out.println("Country: " + country);
@@ -128,6 +129,7 @@ public class ParentClass {
         ExecutionLog.log("Window has been maximized to full screen");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
+        waitForAlert = new WebDriverWait(driver, 3);
 
         countryArray = country.split(",");
         for (int i = 0; i < countryArray.length; i++) {

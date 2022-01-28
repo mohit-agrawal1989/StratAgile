@@ -36,10 +36,14 @@ public class ConsoleLogsValidationCheck extends ParentClass {
                             js.executeScript("return document.readyState").equals("complete"));
                     List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
                     ExecutionLog.log("There are " + allLinks.size() + " hyperlinks");
-
-                    for (int i = 1; i <= 5; i++) {
+                    String url = "";
+                    for (int i = 0; i <= 5; i++) {
                         try {
-                            String url = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
+                            if(i == 0){
+                                url = newUrl;
+                            }else{
+                                url = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
+                            }
                             String[] urlExtension = url.split("/");
                             System.out.println("URL Extension: " + urlExtension[urlExtension.length - 1]);
                             writer = new PrintWriter(directoryPath + "" + File.separator + "Console Errors" + "" + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");

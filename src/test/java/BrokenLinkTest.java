@@ -14,7 +14,7 @@ public class BrokenLinkTest extends ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     static HttpURLConnection huc = null;
     static int responseCode = 200;
-    static boolean linkCheck = false;
+    static boolean linkCheck = false, parentLinkExecution;
     private static PrintWriter writer;
 
     public static void brokenLinkValidationCheck(String[] countryURL) {
@@ -42,12 +42,16 @@ public class BrokenLinkTest extends ParentClass {
 //                ExecutionLog.log("Current window has been resized to the dimension of iphone X: 375*812");
 //                driver.manage().window().setSize(dimension);
                     List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
+
                     ExecutionLog.log("There are " + allLinks.size() + " url to be verified for broken links");
                     Iterator<WebElement> iterator = allLinks.iterator();
-                    while (iterator.hasNext()) {
-
-                        url = iterator.next().getAttribute("href");
-
+                    do {
+                        if(parentLinkExecution){
+                            parentLinkExecution = false;
+                            url = newUrl;
+                        }else{
+                            url = iterator.next().getAttribute("href");
+                        }
                         if (url == null || url.isEmpty()) {
                             linkCheck = true;
                             ExecutionLog.log(url + " URL is either not configured for anchor tag or it is empty");
@@ -77,7 +81,7 @@ public class BrokenLinkTest extends ParentClass {
                             writer.println(url + " This url threw the error");
                             e.printStackTrace();
                         }
-                    }
+                    }while (iterator.hasNext());
                     if (!linkCheck) {
                         writer.println("No broken link found in the execution");
                     }

@@ -6,7 +6,13 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import utility.ExecutionLog;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.List;
@@ -47,9 +53,13 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                         List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
                         ExecutionLog.log("There are " + allLinks.size() + " hyperlinks");
 
-                        for (int i = 1; i <= 5; i++) {
+                        for (int i = 0; i <= 5; i++) {
                             try {
-                                String url = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
+                                if(i == 0){
+                                    url = newUrl;
+                                }else{
+                                    url = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
+                                }
                                 String[] urlExtension = url.split("/");
                                 System.out.println("URL Extension: " + urlExtension[urlExtension.length - 1]);
                                 writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");
@@ -64,6 +74,12 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                                             new WebDriverWait(driver, 60).until(webDriver ->
                                                     js.executeScript("return document.readyState").equals("complete"));
                                             ExecutionLog.log("Navigated to the new URL: " + url);
+                                            Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+                                            BufferedImage image = screenshot.getImage();
+                                            dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots");
+                                            dir.mkdir();
+                                            ImageIO.write(image, "png",
+                                                    new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots" + File.separator + url.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
                                             try {
                                                 Logs logs = driver.manage().logs();
                                                 LogEntries logEntries = logs.get(LogType.BROWSER);

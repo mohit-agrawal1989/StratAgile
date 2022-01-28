@@ -4,7 +4,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import utility.ExecutionLog;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
@@ -19,7 +24,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
     static HttpURLConnection huc = null;
     static int responseCode = 200;
 
-    public static void responsiveDimensionBrokenLinksValidation(String[] countryURL) {
+    public static void responsiveDimensionBrokenImagesValidation(String[] countryURL) {
         try {
             String[] splitResponsiveDeviceAndResolution = null;
             String[] splitResponsiveData = countryURL[0].split("@@");
@@ -29,14 +34,15 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
             File dir = new File(directoryPath + "" + File.separator + "ResponsiveUI");
             dir.mkdir();
             // Starting here the loop for each responsive UI
-            for(int index = 1; index <= splitResponsiveData.length; index++) {
+            for(int index = 1; index < splitResponsiveData.length; index++) {
                 splitResponsiveDeviceAndResolution = splitResponsiveData[index].split("%%");
                 splitResponsiveDeviceAndResolution[0] = splitResponsiveDeviceAndResolution[0].replaceAll("/", " Or ");
                 dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0]);
                 dir.mkdir();
                 dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport");
                 dir.mkdir();
-                String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
+                //String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
+                String[] countryURLToNavigate = splitResponsiveData[0].replaceAll(country[0] + "# ", "").split(", ");
                 writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "BrokenImagesReport.txt", "UTF-8");
                 for (int x = 0; x < countryURLToNavigate.length; x++) {
                     try {
@@ -44,6 +50,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                         System.out.println("URL to be hit: " + countryURLToNavigate[x]);
                         String newUrl = countryURLToNavigate[x];
                         driver.navigate().to(newUrl);
+                        writer.println("Validating the Page : " + newUrl);
                         new WebDriverWait(driver, 60).until(webDriver ->
                                 js.executeScript("return document.readyState").equals("complete"));
                         String[] splitResolution = splitResponsiveDeviceAndResolution[1].split("\\*");
@@ -51,6 +58,12 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                         ExecutionLog.log("Current window has been resized to the dimension of "+splitResponsiveDeviceAndResolution[0]+": "+splitResolution[0]+"*"+splitResolution[0]+"");
                         driver.manage().window().setSize(dimension);
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")));
+                        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+                        BufferedImage image = screenshot.getImage();
+                        dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "Screenshots");
+                        dir.mkdir();
+                        ImageIO.write(image, "png",
+                                new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "Screenshots" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
                         driver.findElement(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")).click();
                         ExecutionLog.log("Clicked on the hamburger menu of mobile view");
                         driver.findElement(By.xpath("//*[contains(@class,'menu')]")).isDisplayed();
