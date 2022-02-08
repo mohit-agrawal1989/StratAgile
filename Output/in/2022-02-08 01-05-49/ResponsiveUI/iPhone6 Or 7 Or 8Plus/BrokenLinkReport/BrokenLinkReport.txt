@@ -1,0 +1,41 @@
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/in/priority/
+https://apply.standardchartered.co.in/av/dialALoan.jsp?_ga=2.201923345.1813236270.1638174147-624472429.1637573678 is a broken link
+https://apply.standardchartered.co.in/av/balanceOnEMI.jsp?_ga=2.201923345.1813236270.1638174147-624472429.1637573678 is a broken link
+https://retail.sc.com/in/nfs/login.htm This url threw the error
+https://apply.standardchartered.co.in/av/balanceTransferOnCreditCards.jsp?_ga=2.165128575.118665494.1638163358-282463112.1638163358 is a broken link
+https://apply.standardchartered.co.in/av/mortagage.jsp?pid=hl_hppromo_off&se=cc_internal_content_hl_hppromo_off&cp=cc_internal_content_bau_segments&ag=hl_hppromo_o is a broken link
+ URL is either not configured for anchor tag or it is empty
+https://apply.standardchartered.co.in/av/PriorityBanking.jsp?pid=prb_home_page is a broken link
+https://apply.standardchartered.co.in/priority-mgm-program/ is a broken link
+https://apply.standardchartered.co.in/priority-mgm-program/ is a broken link
+http://investors.standardchartered.com/en/ This url threw the error
+https://www.linkedin.com/company/standardchartered/ is a broken link
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/in/personal/
+https://apply.standardchartered.co.in/av/dialALoan.jsp?_ga=2.201923345.1813236270.1638174147-624472429.1637573678 is a broken link
+https://apply.standardchartered.co.in/av/balanceOnEMI.jsp?_ga=2.201923345.1813236270.1638174147-624472429.1637573678 is a broken link
+https://retail.sc.com/in/nfs/login.htm This url threw the error
+https://apply.standardchartered.co.in/av/balanceTransferOnCreditCards.jsp?_ga=2.165128575.118665494.1638163358-282463112.1638163358 is a broken link
+https://apply.standardchartered.co.in/av/mortagage.jsp?pid=hl_hppromo_off&se=cc_internal_content_hl_hppromo_off&cp=cc_internal_content_bau_segments&ag=hl_hppromo_o is a broken link
+https://apply.standardchartered.co.in/referral-account?pid=referralpintile&_ga=2.158074810.1801970165.1510645598-1287373978.1510645598 is a broken link
+https://av.sc.com/in/content/docs/in-service-charges-for-non-digital-channels-sosc.pdf is a broken link
+http://investors.standardchartered.com/en/ This url threw the error
+https://www.linkedin.com/company/standardchartered/ is a broken link
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/in/business/
+https://www.sc.com/in/ This url threw the error
+https://apply.standardchartered.co.in/av/dialALoan.jsp?_ga=2.201923345.1813236270.1638174147-624472429.1637573678 is a broken link
+https://apply.standardchartered.co.in/av/balanceOnEMI.jsp?_ga=2.201923345.1813236270.1638174147-624472429.1637573678 is a broken link
+https://retail.sc.com/in/nfs/login.htm This url threw the error
+https://apply.standardchartered.co.in/av/balanceTransferOnCreditCards.jsp?_ga=2.165128575.118665494.1638163358-282463112.1638163358 is a broken link
+https://apply.standardchartered.co.in/av/mortagage.jsp?pid=hl_hppromo_off&se=cc_internal_content_hl_hppromo_off&cp=cc_internal_content_bau_segments&ag=hl_hppromo_o is a broken link
+ URL is either not configured for anchor tag or it is empty
+https://apply.standardchartered.co.in/business-banking/?pid=bbhomepage_masthead_banner&utm_source=&utm_medium=&utm_campaign=&utm_content=&se=bb_internal_content_bau_etb_websitemasthead&cp=bb_internal_content_bau_segments&ag=segments_banner_ is a broken link
+https://apply.standardchartered.co.in/loan-against-property-or-business-installment-loan?pid=storiespagelap_masthd_apply is a broken link
+mailto:customercare.business@sc.com This url threw the error
+https://av.sc.com/in/content/docs/in-s2b-user-maintainance.xlsx is a broken link
+http://scbcvp.azurewebsites.net/scbcharge.aspx This url threw the error
+http://scbcvp.azurewebsites.net/scbcap.aspx This url threw the error
+http://investors.standardchartered.com/en/ This url threw the error
+https://www.linkedin.com/company/standardchartered/ is a broken link

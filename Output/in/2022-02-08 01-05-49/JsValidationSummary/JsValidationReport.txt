@@ -1,0 +1,18 @@
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/in/priority/
+Report summary has been created successfully
+JS failed count : 7 Failed
+JS warning count : 4 Warnings
+JS passed count : 48 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/in/personal/
+Report summary has been created successfully
+JS failed count : 9 Failed
+JS warning count : 3 Warnings
+JS passed count : 47 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/in/business/
+Report summary has been created successfully
+JS failed count : 9 Failed
+JS warning count : 3 Warnings
+JS passed count : 47 Passed

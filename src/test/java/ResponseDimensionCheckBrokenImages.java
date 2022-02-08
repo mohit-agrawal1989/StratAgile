@@ -58,12 +58,12 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                         ExecutionLog.log("Current window has been resized to the dimension of "+splitResponsiveDeviceAndResolution[0]+": "+splitResolution[0]+"*"+splitResolution[0]+"");
                         driver.manage().window().setSize(dimension);
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")));
-                        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
-                        BufferedImage image = screenshot.getImage();
-                        dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "Screenshots");
-                        dir.mkdir();
-                        ImageIO.write(image, "png",
-                                new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "Screenshots" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
+//                        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+//                        BufferedImage image = screenshot.getImage();
+//                        dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "Screenshots");
+//                        dir.mkdir();
+//                        ImageIO.write(image, "png",
+//                                new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "Screenshots" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
                         driver.findElement(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")).click();
                         ExecutionLog.log("Clicked on the hamburger menu of mobile view");
                         driver.findElement(By.xpath("//*[contains(@class,'menu')]")).isDisplayed();

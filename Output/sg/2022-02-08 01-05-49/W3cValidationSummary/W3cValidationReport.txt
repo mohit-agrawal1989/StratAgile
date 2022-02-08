@@ -1,0 +1,35 @@
+________________________________________________________________________________________
+Validating the URL page W3C error check  : https://www.sc.com/sg/priority/
+There are 32 results shown after url validation
+Warning info displayed
+Error message is displayed as "An img element must have an alt attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Error message is displayed as "Bad character   after <. Probable cause: Unescaped <. Try escaping it as &lt;."
+Error message is displayed as "Duplicate ID Layer_2."
+Error message is displayed as "Duplicate ID Layer_1-2."
+Error message is displayed as "Bad character   after <. Probable cause: Unescaped <. Try escaping it as &lt;."
+Error message is displayed as "Duplicate ID Layer_2."
+Error message is displayed as "Duplicate ID Layer_1-2."
+Error message is displayed as "Duplicate ID Layer_2."
+Error message is displayed as "Duplicate ID Layer_1-2."
+Error message is displayed as "Saw <!-- within a comment. Probable cause: Nested comment (not allowed)."
+Error message is displayed as "Saw <!-- within a comment. Probable cause: Nested comment (not allowed)."
+Error message is displayed as "Duplicate ID ICONS."
+Error message is displayed as "Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)"
+Error message is displayed as "CSS: Deprecated media feature max-device-width. For guidance, see the Deprecated Media Features section in the current Media Queries specification."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+Error message is displayed as "Attribute swap-attrs not allowed on element a at this point."
+________________________________________________________________________________________
+Validating the URL page W3C error check  : https://www.sc.com/sg/wealth/
+There are 5 results shown after url validation
+Warning info displayed
+________________________________________________________________________________________
+Validating the URL page W3C error check  : https://www.sc.com/sg/business/
+There are 9 results shown after url validation
+Warning info displayed
+Error message is displayed as "Duplicate ID 4380-solution-group-item-1."
+Error message is displayed as "Duplicate ID 4381-solution-group-item-1."

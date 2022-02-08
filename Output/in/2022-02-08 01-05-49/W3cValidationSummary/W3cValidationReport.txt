@@ -1,0 +1,11 @@
+________________________________________________________________________________________
+Validating the URL page W3C error check  : https://www.sc.com/in/priority/
+There are 1 results shown after url validation
+Error message is displayed as "Bad value for attribute href on element a: Illegal character in fragment: { is not allowed."
+________________________________________________________________________________________
+Validating the URL page W3C error check  : https://www.sc.com/in/personal/
+There are 1 results shown after url validation
+Warning info displayed
+________________________________________________________________________________________
+Validating the URL page W3C error check  : https://www.sc.com/in/business/
+There are 0 results shown after url validation

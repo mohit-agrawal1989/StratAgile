@@ -1,6 +1,8 @@
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.ExecutionLog;
 import java.io.File;
@@ -16,6 +18,7 @@ public class BrokenLinkTest extends ParentClass {
     static int responseCode = 200;
     static boolean linkCheck = false, parentLinkExecution;
     private static PrintWriter writer;
+    static boolean alertFlag = false;
 
     public static void brokenLinkValidationCheck(String[] countryURL) {
         try {
@@ -37,7 +40,12 @@ public class BrokenLinkTest extends ParentClass {
                     writer.println("Validating the Page : " + newUrl);
                     new WebDriverWait(driver, 60).until(webDriver ->
                             js.executeScript("return document.readyState").equals("complete"));
-
+                    String str = driver.getPageSource();
+                    if(str.equals("<html><head></head><body></body></html>")){
+                        String passwordProtectedURL[] = newUrl.split("://");
+                        newUrl = passwordProtectedURL[0] + "://sc:sc2016!@" + passwordProtectedURL[1];
+                        driver.navigate().to(newUrl);
+                    }
 //                Dimension dimension = new Dimension(375,812);
 //                ExecutionLog.log("Current window has been resized to the dimension of iphone X: 375*812");
 //                driver.manage().window().setSize(dimension);

@@ -24,7 +24,7 @@ public class ParentClass {
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
     String os = "windows";
-    String type = "yes";
+    String type = "no";
     public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
     Object[][] data = null;
@@ -97,8 +97,7 @@ public class ParentClass {
             if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
-                if(type.equalsIgnoreCase("Yes"))
-                    options.addArguments("--headless");
+                options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--incognito");
                 options.addArguments("--disable-dev-shm-usage");
@@ -106,7 +105,7 @@ public class ParentClass {
                 driver = new ChromeDriver(options);
 //                country = "sg".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
-                filePath = System.getProperty("filePath");
+                //filePath = System.getProperty("filePath");
                 System.out.println("Country: " + country);
                 System.out.println("FilePath: " + filePath);
             }

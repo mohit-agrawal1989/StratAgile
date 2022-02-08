@@ -1,8 +1,0 @@
-________________________________________________________________________________________
-Validating the URL page W3C error check  : https://www.sc.com/sg/
-There are 5 results shown after url validation
-Warning info displayed
-________________________________________________________________________________________
-Validating the URL page W3C error check  : https://www.sc.com/sg/credit-cards/
-There are 5 results shown after url validation
-Warning info displayed

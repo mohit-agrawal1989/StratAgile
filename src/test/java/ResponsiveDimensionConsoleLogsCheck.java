@@ -50,6 +50,8 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                         driver.navigate().to(newUrl);
                         new WebDriverWait(driver, 60).until(webDriver ->
                                 js.executeScript("return document.readyState").equals("complete"));
+                        dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "."));
+                        dir.mkdir();
                         List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
                         ExecutionLog.log("There are " + allLinks.size() + " hyperlinks");
 
@@ -62,7 +64,7 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                                 }
                                 String[] urlExtension = url.split("/");
                                 System.out.println("URL Extension: " + urlExtension[urlExtension.length - 1]);
-                                writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");
+                                writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", ".") + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");
                                 String parentWindow = driver.getWindowHandle();
                                 js.executeScript("window.open();");
                                 Set<String> handles = driver.getWindowHandles();
@@ -74,12 +76,12 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                                             new WebDriverWait(driver, 60).until(webDriver ->
                                                     js.executeScript("return document.readyState").equals("complete"));
                                             ExecutionLog.log("Navigated to the new URL: " + url);
-                                            Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
-                                            BufferedImage image = screenshot.getImage();
-                                            dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots");
-                                            dir.mkdir();
-                                            ImageIO.write(image, "png",
-                                                    new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots" + File.separator + url.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
+//                                            Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+//                                            BufferedImage image = screenshot.getImage();
+//                                            dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots");
+//                                            dir.mkdir();
+//                                            ImageIO.write(image, "png",
+//                                                    new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots" + File.separator + url.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
                                             try {
                                                 Logs logs = driver.manage().logs();
                                                 LogEntries logEntries = logs.get(LogType.BROWSER);
