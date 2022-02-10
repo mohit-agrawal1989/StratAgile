@@ -24,7 +24,7 @@ public class ParentClass {
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
     String os = "windows";
-    String type = "no";
+    String type = "yes";
     public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
     Object[][] data = null;

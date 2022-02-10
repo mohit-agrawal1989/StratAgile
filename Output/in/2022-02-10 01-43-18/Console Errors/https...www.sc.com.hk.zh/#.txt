@@ -1,0 +1,11 @@
+Found error in logs for this url: https://av.sc.com/assets/global/chatbot/scripts/deps.min.js?v=1.42 0:610190 Uncaught s: Template was precompiled with a newer version of H…pdate your runtime to a newer version (>= 4.3.0).
+Found error in logs for this url: https://www.sc.com/hk/zh/ - The resource https://av.sc.com/assets/global/fonts/sc-sans-web-bold.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Found error in logs for this url: https://www.sc.com/hk/zh/ - The resource https://av.sc.com/assets/global/fonts/sc-sans-web-light.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Found error in logs for this url: https://www.sc.com/hk/zh/ - The resource https://av.sc.com/assets/global/fonts/sc-sans-web-regular.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Found error in logs for this url: https://www.sc.com/hk/zh/ - The resource https://av.sc.com/assets/global/fonts/sc-sans-web-thin.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+Found error in logs for this url: https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for this url: https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for this url: https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for this url: https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for this url: https://www.googleadservices.com/pagead/conversion.js 79 Unrecognized feature: 'attribution-reporting'.
+

@@ -1,0 +1,27 @@
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/sg/
+Report summary has been created successfully
+JS failed count : 9 Failed
+JS warning count : 5 Warnings
+JS passed count : 45 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/ng/
+Report summary has been created successfully
+JS failed count : 7 Failed
+JS warning count : 3 Warnings
+JS passed count : 49 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/hk/
+Report summary has been created successfully
+JS failed count : 9 Failed
+JS warning count : 4 Warnings
+JS passed count : 46 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/hk/zh/
+Report summary has been created successfully
+JS failed count : 12 Failed
+JS warning count : 4 Warnings
+JS passed count : 43 Passed
+________________________________________________________________________________________
+Validating the page for JS error check  : https://www.sc.com/my/
+Error occur during execution

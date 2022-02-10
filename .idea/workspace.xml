@@ -20,7 +20,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.C:/Users/mohit/Downloads/StandardCharteredMaven/StandardCharteredMaven/testng.xml">
+    <configuration name="C:/Users/mohit/Downloads/StandardCharteredMaven/StandardCharteredMaven/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="StandardChartered-Test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ParentClass.w3cValidationCheck" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="StandardChartered-Test" />
       <option name="PACKAGE_NAME" value="" />
@@ -35,6 +45,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/Users/mohit/Downloads/StandardCharteredMaven/StandardCharteredMaven/testng.xml" />
         <item itemvalue="TestNG.ParentClass.w3cValidationCheck" />
       </list>
     </recent_temporary>

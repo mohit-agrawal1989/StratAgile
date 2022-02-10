@@ -3,7 +3,18 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="StancyBank">
         <classes>
-            <class name="ParentClass"/>
+            <class name="ParentClass">
+                <methods>
+                    <include name="w3cValidationCheck"/>
+                    <include name="jsValidationCheck"/>
+                    <include name="brokenLinkCheck"/>
+                    <include name="brokenImagesCheck"/>
+                    <include name="responseDimensionCheckBrokenLinks"/>
+                    <include name="responseDimensionCheckBrokenImages"/>
+                    <include name="consoleLogsCheck"/>
+                    <include name="responsiveDimensionConsoleLogs"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

@@ -1,0 +1,10 @@
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://av.sc.com/assets/global/chatbot/scripts/deps.min.js?v=1.42 0:610190 Uncaught s: Template was precompiled with a newer version of H…pdate your runtime to a newer version (>= 4.3.0).
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://assets.adobedtm.com/launch-ENa7eb1ee509d342d08c584f8573a369b3.min.js 4:16697 "AT:" "metric element not found" Object
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://assets.adobedtm.com/launch-ENa7eb1ee509d342d08c584f8573a369b3.min.js 4:16697 "AT:" "metric element not found" Object
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://assets.adobedtm.com/launch-ENa7eb1ee509d342d08c584f8573a369b3.min.js 4:16697 "AT:" "metric element not found" Object
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PRJSHV2&l=dataLayer 56 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for url "https://www.sc.com/hk/#" and message : https://www.googleadservices.com/pagead/conversion.js 79 Unrecognized feature: 'attribution-reporting'.
+

@@ -1,0 +1,11 @@
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PHQV2K 74 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PHQV2K 74 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://av.sc.com/assets/global/js/utils.min.js?ver=e8ba9f3 0:8411 Uncaught DOMException: Blocked a frame with origin "https://www.sc.com" from accessing a cross-origin frame.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : security - Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://av.sc.com/assets/global/adobe/production/028e16c0f6dc/31f4711eb878/launch-2acbcf2d3386.min.js 10:30704 "🚀" "container.buildInfo.environment is deprecated.Please use `container.environment.stage` instead"
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PHQV2K 74 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-PHQV2K 74 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://av.sc.com/assets/global/js/utils.min.js?ver=e8ba9f3 0:8411 Uncaught DOMException: Blocked a frame with origin "https://www.sc.com" from accessing a cross-origin frame.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : security - Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.
+Found error in logs for url "https://www.sc.com/ae/priority/education-calculator/" and message : https://av.sc.com/assets/global/adobe/production/028e16c0f6dc/31f4711eb878/launch-2acbcf2d3386.min.js 10:30704 "🚀" "container.buildInfo.environment is deprecated.Please use `container.environment.stage` instead"
+

@@ -39,7 +39,7 @@ public class JsValidationCheck extends ParentClass {
                     driver.manage().window().maximize();
                     ExecutionLog.log("Window has been maximized to full screen");
                     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    wait = new WebDriverWait(driver, 30);
+                    wait = new WebDriverWait(driver, 120);
                     driver.navigate().to("https://seositecheckup.com/analysis");
 //                    new WebDriverWait(driver, 60).until(webDriver ->
 //                            js.executeScript("return document.readyState").equals("complete"));
@@ -68,14 +68,14 @@ public class JsValidationCheck extends ParentClass {
                     ExecutionLog.log("JS passed count : " + jsPassedCount);
                     writer.println("JS passed count : " + jsPassedCount);
                 } catch (Exception e) {
-                    writer.println("Error occur during execution");
+                    writer.println("Error occur during execution"+e.getMessage());
                     writer.close();
                     e.printStackTrace();
                 }
             }
             writer.close();
         } catch (Exception e) {
-            writer.println("Error occur during execution");
+            writer.println("Error occur during execution"+e.getMessage());
             writer.close();
             e.printStackTrace();
         }

@@ -1,0 +1,15 @@
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/sg/
+No broken image found in the execution
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/ng/
+No broken image found in the execution
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/hk/
+No broken image found in the execution
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/hk/zh/
+No broken image found in the execution
+________________________________________________________________________________________
+Validating the Page : https://www.sc.com/my/
+Error occur during execution of url : https://sp.analytics.yahoo.com/sp.pl?a=10000&d=Tue%2C%2008%20Feb%202022%2012%3A41%3A40%20GMT&n=-5&b=%E6%B8%A3%E6%89%93%E9%8A%80%E8%A1%8C%E9%A6%99%E6%B8%AF%20%7C%20%E4%B8%80%E5%BF%83%E5%81%9A%E5%A5%BD%20%E5%A7%8B%E7%B5%82%E5%A6%82%E4%B8%80&.yp=406166&f=https%3A%2F%2Fwww.sc.com%2Fhk%2Fzh%2F&enc=UTF-8&yv=1.12.0&tagmgr=gtm%2Cadobe

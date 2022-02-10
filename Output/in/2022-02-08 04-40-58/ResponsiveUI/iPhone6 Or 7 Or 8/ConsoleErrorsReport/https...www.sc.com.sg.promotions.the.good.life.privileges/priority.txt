@@ -1,0 +1,7 @@
+Found error in logs for url "https://www.sc.com/sg/priority/" and message : https://www.sc.com/sg/credit-cards/the-good-life-privileges/api/getOfferDetails/sg/null/l/2022-2-8_18:35:00 - Failed to load resource: the server responded with a status of 503 ()
+Found error in logs for url "https://www.sc.com/sg/priority/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-P3BPFN7&l=dataLayer 73 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for url "https://www.sc.com/sg/priority/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-P3BPFN7&l=dataLayer 73 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for url "https://www.sc.com/sg/priority/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-P3BPFN7&l=dataLayer 73 Unrecognized feature: 'attribution-reporting'.
+Found error in logs for url "https://www.sc.com/sg/priority/" and message : https://www.googletagmanager.com/gtm.js?id=GTM-P3BPFN7&l=dataLayer 73 Unrecognized feature: 'conversion-measurement'.
+Found error in logs for url "https://www.sc.com/sg/priority/" and message : https://av.sc.com/assets/global/adobe/production/5e4ae16ab23e/2be1a655bb44/launch-5d0b74b28d2b.min.js 12:2713 "🚀" "container.buildInfo.environment is deprecated.Please use `container.environment.stage` instead"
+
