@@ -23,7 +23,7 @@ public class ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
-    String os = "windows";
+    String os = "linux";
     String type = "yes";
     public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
@@ -91,7 +91,7 @@ public class ParentClass {
             } else if (os.equalsIgnoreCase("Mac")) {
                 if (driverType.equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_mac");
-            } else if(os.equalsIgnoreCase("ubuntu")){
+            } else if(os.equalsIgnoreCase("linux")){
                 if (driverType.equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_linux");
             }
@@ -101,7 +101,7 @@ public class ParentClass {
             if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
-//                options.addArguments("--headless");
+                options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--incognito");
                 options.addArguments("--disable-dev-shm-usage");
