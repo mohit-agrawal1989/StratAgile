@@ -1,4 +1,0 @@
-Jan 10,2022 13:24:45 [info]  Browser has been initiated successfully
-Jan 10,2022 13:24:45 [info]  Window has been maximized to full screen
-Jan 10,2022 13:24:49 [info]  Validating the page for W3C error check : https://www.sc.com/sg/priority/
-Jan 10,2022 13:24:49 [info]  Entered the standard chartered url for validation into the address bar for validation

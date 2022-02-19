@@ -33,7 +33,7 @@ public class JsValidationCheck extends ParentClass {
                     driver.quit();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--no-sandbox");
-                    options.addArguments("--headless");
+//                    options.addArguments("--headless");
                     driver = new ChromeDriver(options);
                     ExecutionLog.log("Browser has been initiated successfully");
                     driver.manage().window().maximize();

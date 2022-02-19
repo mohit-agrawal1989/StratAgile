@@ -1,0 +1,57 @@
+Feb 19,2022 10:25:29 [info]  Browser has been initiated successfully
+Feb 19,2022 10:25:29 [info]  Window has been maximized to full screen
+Feb 19,2022 10:25:35 [info]  Browser has been initiated successfully
+Feb 19,2022 10:25:35 [info]  Window has been maximized to full screen
+Feb 19,2022 10:25:45 [info]  Validating the page for JS error check : https://www.sc.com/sg/
+Feb 19,2022 10:25:49 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Feb 19,2022 10:25:54 [info]  Clicked on the check button to validate the standard chartered url address
+Feb 19,2022 10:26:36 [info]  Progress bar under the card header is complete
+Feb 19,2022 10:26:36 [info]  Report summary has been created successfully
+Feb 19,2022 10:26:38 [info]  JS failed count : 8 Failed
+Feb 19,2022 10:26:38 [info]  JS warning count : 5 Warnings
+Feb 19,2022 10:26:38 [info]  JS passed count : 46 Passed
+Feb 19,2022 10:26:39 [info]  Browser has been initiated successfully
+Feb 19,2022 10:26:39 [info]  Window has been maximized to full screen
+Feb 19,2022 10:26:56 [info]  Validating the page for JS error check : https://www.sc.com/ng/
+Feb 19,2022 10:26:59 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Feb 19,2022 10:27:11 [info]  Clicked on the check button to validate the standard chartered url address
+Feb 19,2022 10:28:17 [info]  Browser has been initiated successfully
+Feb 19,2022 10:28:17 [info]  Window has been maximized to full screen
+Feb 19,2022 10:28:35 [info]  Validating the page for W3C error check : https://www.sc.com/sg/
+Feb 19,2022 10:28:35 [info]  Entered the standard chartered url for validation into the address bar for validation
+Feb 19,2022 10:29:08 [info]  Browser has been initiated successfully
+Feb 19,2022 10:29:08 [info]  Window has been maximized to full screen
+Feb 19,2022 10:29:15 [info]  Browser has been initiated successfully
+Feb 19,2022 10:29:15 [info]  Window has been maximized to full screen
+Feb 19,2022 10:29:34 [info]  Validating the page for JS error check : https://www.sc.com/sg/
+Feb 19,2022 10:29:38 [info]  Entered the standard chartered url for js validation into the address bar for validation
+Feb 19,2022 10:29:43 [info]  Clicked on the check button to validate the standard chartered url address
+Feb 19,2022 10:32:32 [info]  Browser has been initiated successfully
+Feb 19,2022 10:32:32 [info]  Window has been maximized to full screen
+Feb 19,2022 10:32:38 [info]  Browser has been initiated successfully
+Feb 19,2022 10:32:39 [info]  Window has been maximized to full screen
+Feb 19,2022 10:34:02 [info]  Browser has been initiated successfully
+Feb 19,2022 10:34:02 [info]  Window has been maximized to full screen
+Feb 19,2022 10:34:14 [info]  Browser has been initiated successfully
+Feb 19,2022 10:34:14 [info]  Window has been maximized to full screen
+Feb 19,2022 10:34:31 [info]  Validating the page for JS error check : https://www.sc.com/sg/
+Feb 19,2022 10:36:02 [info]  Browser has been initiated successfully
+Feb 19,2022 10:36:02 [info]  Window has been maximized to full screen
+Feb 19,2022 10:36:09 [info]  Browser has been initiated successfully
+Feb 19,2022 10:36:09 [info]  Window has been maximized to full screen
+Feb 19,2022 10:38:23 [info]  Browser has been initiated successfully
+Feb 19,2022 10:38:23 [info]  Window has been maximized to full screen
+Feb 19,2022 10:39:00 [info]  Validating the page for W3C error check : https://www.sc.com/sg/
+Feb 19,2022 10:39:11 [info]  Validating the page for W3C error check : https://www.sc.com/ng/
+Feb 19,2022 10:39:11 [info]  There are 43 url to be verified for broken links
+Feb 19,2022 10:39:11 [info]  Entered the standard chartered url for validation into the address bar for validation
+Feb 19,2022 10:39:20 [info]  Clicked on the check button to validate the standard chartered url address
+Feb 19,2022 10:39:24 [info]  http://www.w3.org/ is a valid link
+Feb 19,2022 10:39:39 [info]  There are 219 url to be verified for broken links
+Feb 19,2022 10:39:41 [info]  https://www.sc.com/ng/premium/ is a valid link
+Feb 19,2022 10:39:51 [info]  https://www.sc.com/ng/priority/ is a valid link
+Feb 19,2022 10:41:28 [info]  Browser has been initiated successfully
+Feb 19,2022 10:41:28 [info]  Window has been maximized to full screen
+Feb 19,2022 10:41:36 [info]  Validating the page for W3C error check : https://www.sc.com/sg/
+Feb 19,2022 10:41:36 [info]  Entered the standard chartered url for validation into the address bar for validation
+Feb 19,2022 10:41:41 [info]  Clicked on the check button to validate the standard chartered url address

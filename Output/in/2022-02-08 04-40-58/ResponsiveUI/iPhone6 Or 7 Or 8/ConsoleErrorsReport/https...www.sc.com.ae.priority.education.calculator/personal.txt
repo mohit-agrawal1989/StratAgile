@@ -1,5 +1,0 @@
-Found error in logs for url "https://www.sc.com/ae/personal/" and message : https://www.sc.com/tools/education-calculator/images/expectedannualratehBg.gif - Failed to load resource: the server responded with a status of 500 ()
-Found error in logs for url "https://www.sc.com/ae/personal/" and message : https://av.sc.com/assets/global/js/iframe.js?ver=e8ba9f3 7:866 "[iFrameSizer][Host page: form-frm]" "IFrame has not responded within 5 seconds. Check iFrameResizer.contentWindow.js has been loaded in iFrame. This message can be ignored if everything is working, or you can set the warningTimeout option to a higher value or zero to suppress this warning."
-Found error in logs for url "https://www.sc.com/ae/personal/" and message : security - Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'.
-Found error in logs for url "https://www.sc.com/ae/personal/" and message : https://av.sc.com/assets/global/adobe/production/028e16c0f6dc/31f4711eb878/launch-2acbcf2d3386.min.js 10:30704 "🚀" "container.buildInfo.environment is deprecated.Please use `container.environment.stage` instead"
-

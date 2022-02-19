@@ -91,19 +91,23 @@ public class ParentClass {
             } else if (os.equalsIgnoreCase("Mac")) {
                 if (driverType.equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_mac");
+            } else if(os.equalsIgnoreCase("ubuntu")){
+                if (driverType.equalsIgnoreCase("chrome"))
+                    System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_linux");
             }
+
 
             //Check if desired browser is Chrome
             if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--no-sandbox");
-                options.addArguments("--headless");
+//                options.addArguments("--headless");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--incognito");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--window-size=1600x900");
                 driver = new ChromeDriver(options);
-//                country = "sg".toLowerCase();
+//                country = "in".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
                 //filePath = System.getProperty("filePath");
                 System.out.println("Country: " + country);
