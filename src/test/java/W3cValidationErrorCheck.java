@@ -69,7 +69,7 @@ public class W3cValidationErrorCheck extends ParentClass {
                         }
                     }
                 } catch (Exception e) {
-                    writer.println("Error occur during execution");
+                    writer.println("Error occur during execution"+ e.getMessage());
                     writer.close();
                     e.printStackTrace();
                 }
