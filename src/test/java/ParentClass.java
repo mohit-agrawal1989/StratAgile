@@ -23,7 +23,7 @@ public class ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
-    String os = "linux";
+    String os = "windows";
     String type = "yes";
     public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
