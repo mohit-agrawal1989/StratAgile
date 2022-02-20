@@ -44,40 +44,40 @@ public class ParentClass {
         W3cValidationErrorCheck.w3cValidation(countryURL); // Checking the w3c validation of warnings and errors
     }
 
-//    @Test (priority = 1, dataProvider = "testData")
-//    public void jsValidationCheck(String[] countryURL){
-//        JsValidationCheck.jsValidation(countryURL); // Checking for javascript warnings and errors
-//    }
-//
-//    @Test (priority = 2, dataProvider = "testData")
-//    public void brokenLinkCheck(String[] countryURL){
-//        BrokenLinkTest.brokenLinkValidationCheck(countryURL); // Checking for broken links on Standard Chartered home page
-//    }
-//
-//    @Test (priority = 3, dataProvider = "testData")
-//    public void brokenImagesCheck(String[] countryURL)  {
-//        BrokenImageTest.brokenImageValidationCheck(countryURL); // Checking for broken images on Standard Chartered home page
-//    }
-//
-//    @Test (priority = 4, dataProvider = "testData")
-//    public void responseDimensionCheckBrokenLinks(String[] countryURL){
-//        ResponseDimensionCheckBrokenLinks.responsiveDimensionBrokenLinksValidation(countryURL); // Checking for responsive dimension
-//    }
-//
-//    @Test (priority = 5, dataProvider = "testData")
-//    public void responseDimensionCheckBrokenImages(String[] countryURL){
-//        ResponseDimensionCheckBrokenImages.responsiveDimensionBrokenImagesValidation(countryURL); // Checking for responsive dimension
-//    }
-//
-//    @Test (priority = 6, dataProvider = "testData")
-//    public void consoleLogsCheck(String[] countryURL) {
-//        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
-//    }
-//
-//    @Test (priority = 7, dataProvider = "testData")
-//    public void responsiveDimensionConsoleLogs(String[] countryURL) {
-//        ResponsiveDimensionConsoleLogsCheck.responsiveDimensionConsoleLogsCheck(countryURL); // Checking the console log errors
-//    }
+    @Test (priority = 1, dataProvider = "testData")
+    public void jsValidationCheck(String[] countryURL){
+        JsValidationCheck.jsValidation(countryURL); // Checking for javascript warnings and errors
+    }
+
+    @Test (priority = 2, dataProvider = "testData")
+    public void brokenLinkCheck(String[] countryURL){
+        BrokenLinkTest.brokenLinkValidationCheck(countryURL); // Checking for broken links on Standard Chartered home page
+    }
+
+    @Test (priority = 3, dataProvider = "testData")
+    public void brokenImagesCheck(String[] countryURL)  {
+        BrokenImageTest.brokenImageValidationCheck(countryURL); // Checking for broken images on Standard Chartered home page
+    }
+
+    @Test (priority = 4, dataProvider = "testData")
+    public void responseDimensionCheckBrokenLinks(String[] countryURL){
+        ResponseDimensionCheckBrokenLinks.responsiveDimensionBrokenLinksValidation(countryURL); // Checking for responsive dimension
+    }
+
+    @Test (priority = 5, dataProvider = "testData")
+    public void responseDimensionCheckBrokenImages(String[] countryURL){
+        ResponseDimensionCheckBrokenImages.responsiveDimensionBrokenImagesValidation(countryURL); // Checking for responsive dimension
+    }
+
+    @Test (priority = 6, dataProvider = "testData")
+    public void consoleLogsCheck(String[] countryURL) {
+        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
+    }
+
+    @Test (priority = 7, dataProvider = "testData")
+    public void responsiveDimensionConsoleLogs(String[] countryURL) {
+        ResponsiveDimensionConsoleLogsCheck.responsiveDimensionConsoleLogsCheck(countryURL); // Checking the console log errors
+    }
 
 
     @BeforeTest
