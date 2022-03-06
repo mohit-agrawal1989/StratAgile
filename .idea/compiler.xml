@@ -6,8 +6,13 @@
         <sourceOutputDir name="${project.basedir}/target/generated-sources/annotations" />
         <sourceTestOutputDir name="${project.basedir}/target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="StratAgile" />
         <module name="StandardChartered-Test" />
+      </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="StratAgile" />
       </profile>
     </annotationProcessing>
   </component>

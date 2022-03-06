@@ -55,7 +55,7 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                         List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
                         ExecutionLog.log("There are " + allLinks.size() + " hyperlinks");
 
-                        for (int i = 0; i <= 5; i++) {
+                        for (int i = 0; i <= allLinks.size(); i++) {
                             try {
                                 if(i == 0){
                                     url = newUrl;

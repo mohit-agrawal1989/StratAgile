@@ -1,7 +1,13 @@
 import au.com.bytecode.opencsv.CSVReader;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
@@ -10,9 +16,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utility.ExecutionLog;
 import java.io.*;
+import java.net.MalformedURLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class ParentClass {
@@ -20,11 +28,14 @@ public class ParentClass {
     enum WebBrowser {Chrome}
 
     public static WebDriver driver;
+    //public static AppiumDriver appiumDriver = null;
+    //AndroidDriver androidDriver = (AndroidDriver) driver;
+    //IOSDriver iosDriver = (IOSDriver) driver;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
-    String os = "linux";
-    String type = "yes";
+    String os = "windows";
+    public String headless = readApplicationFile("headless", path);  // Define the value as "Yes" if want to run in headless mode
     public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
     Object[][] data = null;
@@ -35,7 +46,10 @@ public class ParentClass {
     static String responsivePath = "responsiveDevices.properties";
     public Map<Integer, String> map = new LinkedHashMap<Integer, String>();
     public Map<Object, Object> responsiveDeviceData = new LinkedHashMap<>();
-
+    public static final String browserStackUserName = readApplicationFile("browserStackUserName", path);
+    public static final String browserStackAccessKey = readApplicationFile("browserStackAccessKey", path);
+    public static final String URL = "https://" + browserStackUserName + ":" + browserStackAccessKey + "@hub-cloud.browserstack.com/wd/hub";
+    //public static final String URL = "http://hub.browserstack.com/wd/hub";
     public String responsiveDataCollection = "";
 
 
@@ -81,8 +95,7 @@ public class ParentClass {
 
 
     @BeforeTest
-    public void setup() {
-
+    public void setup() throws MalformedURLException {
         if (driver == null) {
 
             if (os.equalsIgnoreCase("Windows")) {
@@ -91,27 +104,52 @@ public class ParentClass {
             } else if (os.equalsIgnoreCase("Mac")) {
                 if (driverType.equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_mac");
-            } else if(os.equalsIgnoreCase("linux")){
-                if (driverType.equalsIgnoreCase("chrome"))
-                    System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_linux");
             }
-
 
             //Check if desired browser is Chrome
             if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--no-sandbox");
-                options.addArguments("--headless");
-                options.addArguments("--disable-gpu");
-                options.addArguments("--incognito");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--window-size=1600x900");
-                driver = new ChromeDriver(options);
+                //options.addArguments("--no-sandbox");
+                if(headless.equalsIgnoreCase("yes")){
+                    options.addArguments("--headless");
+                }
+                //options.addArguments("--disable-gpu");
+                //options.addArguments("--incognito");
+                //options.addArguments("--disable-dev-shm-usage");
+                //options.addArguments("--window-size=1600x900");
+                DesiredCapabilities caps = new DesiredCapabilities();
+                caps.setCapability("os", readApplicationFile("os", path));
+                caps.setCapability("os_version", readApplicationFile("os_version", path));
+                caps.setCapability("browser", readApplicationFile("browser", path));
+                caps.setCapability("browser_version", readApplicationFile("browser_version", path));
+                caps.setCapability("project", "Standard Chartered");
+                caps.setCapability("build", "1");
+                caps.setCapability("name", "ST");
+                caps.setCapability("browserstack.local", "true");
+                caps.setCapability("browserstack.debug", "true");
+                caps.setCapability("browserstack.networkLogs", "true");
+                caps.setCapability("browserstack.selenium_version", "3.14.0");
+                caps.setCapability("browserstack.idleTimeout", "300");
+                caps.setCapability(ChromeOptions.CAPABILITY, options);
+//                caps.setCapability("os_version", "10.0");
+//                caps.setCapability("device", "Samsung Galaxy S20");
+//                caps.setCapability("real_mobile", "true");
+//                caps.setCapability("project", "Standard Chartered");
+//                caps.setCapability("build", "1");
+//                caps.setCapability("name", "ST");
+//                caps.setCapability("browserstack.local", "true");
+//                caps.setCapability("browserstack.debug", "true");
+//                caps.setCapability("browserstack.networkLogs", "true");
+                //appiumDriver = new AndroidDriver(new URL(URL), caps);
+                //AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL(URL), caps);
+                driver = new RemoteWebDriver(new URL(URL), caps);
+//                driver = new ChromeDriver(caps);
 //                country = "in".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
                 //filePath = System.getProperty("filePath");
                 System.out.println("Country: " + country);
-                System.out.println("FilePath: " + filePath);
+                //System.out.println("FilePath: " + filePath);
+
             }
 
 //            //If browser type is not matched, exit from the system

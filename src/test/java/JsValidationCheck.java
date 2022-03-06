@@ -2,15 +2,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.ExecutionLog;
 import java.io.File;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class JsValidationCheck extends ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
+    static ParentClass parentClass = new ParentClass();
     private static PrintWriter writer;
 
     public static void jsValidation(String[] countryURL) {
@@ -31,15 +35,32 @@ public class JsValidationCheck extends ParentClass {
                     String newUrl = countryURLToNavigate[x];
                     driver.manage().deleteAllCookies();
                     driver.quit();
+
+                    DesiredCapabilities caps = new DesiredCapabilities();
+                    caps.setCapability("os", readApplicationFile("os", path));
+                    caps.setCapability("os_version", readApplicationFile("os_version", path));
+                    caps.setCapability("browser", readApplicationFile("browser", path));
+                    caps.setCapability("browser_version", readApplicationFile("browser_version", path));
+                    caps.setCapability("project", "Standard Chartered");
+                    caps.setCapability("build", "1");
+                    caps.setCapability("name", "ST");
+                    caps.setCapability("browserstack.local", "true");
+                    caps.setCapability("browserstack.debug", "true");
+                    caps.setCapability("browserstack.networkLogs", "true");
+                    caps.setCapability("browserstack.selenium_version", "3.14.0");
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--no-sandbox");
-                    options.addArguments("--headless");
-                    driver = new ChromeDriver(options);
+                    if(parentClass.headless.equalsIgnoreCase("yes")){
+                        options.addArguments("--headless");
+                    }
+                    caps.setCapability(ChromeOptions.CAPABILITY, options);
+                    driver = new RemoteWebDriver(new URL(URL), caps);
+                    //driver = new ChromeDriver(options);
                     ExecutionLog.log("Browser has been initiated successfully");
                     driver.manage().window().maximize();
                     ExecutionLog.log("Window has been maximized to full screen");
                     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    wait = new WebDriverWait(driver, 120);
+                    wait = new WebDriverWait(driver, 30);
                     driver.navigate().to("https://seositecheckup.com/analysis");
 //                    new WebDriverWait(driver, 60).until(webDriver ->
 //                            js.executeScript("return document.readyState").equals("complete"));
@@ -68,14 +89,14 @@ public class JsValidationCheck extends ParentClass {
                     ExecutionLog.log("JS passed count : " + jsPassedCount);
                     writer.println("JS passed count : " + jsPassedCount);
                 } catch (Exception e) {
-                    writer.println("Error occur during execution"+e.getMessage());
+                    writer.println("Error occur during execution");
                     writer.close();
                     e.printStackTrace();
                 }
             }
             writer.close();
         } catch (Exception e) {
-            writer.println("Error occur during execution"+e.getMessage());
+            writer.println("Error occur during execution");
             writer.close();
             e.printStackTrace();
         }
