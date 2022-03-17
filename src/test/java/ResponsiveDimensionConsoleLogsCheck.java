@@ -34,103 +34,63 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
             File dir = new File(directoryPath + "" + File.separator + "ResponsiveUI");
             dir.mkdir();
             // Starting here the loop for each responsive UI
-            for(int index = 1; index <= splitResponsiveData.length; index++) {
+            for (int index = 1; index < splitResponsiveData.length; index++) {
                 splitResponsiveDeviceAndResolution = splitResponsiveData[index].split("%%");
                 splitResponsiveDeviceAndResolution[0] = splitResponsiveDeviceAndResolution[0].replaceAll("/", " Or ");
                 dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0]);
                 dir.mkdir();
                 dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport");
                 dir.mkdir();
-                String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
+                String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(",");
 
                 for (int x = 0; x < countryURLToNavigate.length; x++) {
                     try {
-                        System.out.println("URL to be hit: " + countryURLToNavigate[x]);
-                        String newUrl = countryURLToNavigate[x];
+                        System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
+                        String newUrl = countryURLToNavigate[x].replace("\"", "");
                         driver.navigate().to(newUrl);
                         new WebDriverWait(driver, 60).until(webDriver ->
                                 js.executeScript("return document.readyState").equals("complete"));
                         dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "."));
                         dir.mkdir();
-                        List<WebElement> allLinks = driver.findElements(By.xpath("//a[@href]"));
-                        ExecutionLog.log("There are " + allLinks.size() + " hyperlinks");
-
-                        for (int i = 0; i <= allLinks.size(); i++) {
+                        try {
+                            url = newUrl;
+                            String[] urlExtension = url.split("/");
+                            //System.out.println("URL Extension: " + urlExtension[urlExtension.length - 1]);
+                            writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", ".") + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");
                             try {
-                                if(i == 0){
-                                    url = newUrl;
-                                }else{
-                                    url = driver.findElement(By.xpath("(//a[@href])[" + i + "]")).getAttribute("href");
-                                }
-                                String[] urlExtension = url.split("/");
-                                System.out.println("URL Extension: " + urlExtension[urlExtension.length - 1]);
-                                writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", ".") + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");
-                                String parentWindow = driver.getWindowHandle();
-                                js.executeScript("window.open();");
-                                Set<String> handles = driver.getWindowHandles();
-                                for (String childWindow : handles) {
-                                    try {
-                                        if (!childWindow.equals(parentWindow)) {
-                                            driver.switchTo().window(childWindow);
-                                            driver.get(url);
-                                            new WebDriverWait(driver, 60).until(webDriver ->
-                                                    js.executeScript("return document.readyState").equals("complete"));
-                                            ExecutionLog.log("Navigated to the new URL: " + url);
-//                                            Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
-//                                            BufferedImage image = screenshot.getImage();
-//                                            dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots");
-//                                            dir.mkdir();
-//                                            ImageIO.write(image, "png",
-//                                                    new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + "Screenshots" + File.separator + url.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
-                                            try {
-                                                Logs logs = driver.manage().logs();
-                                                LogEntries logEntries = logs.get(LogType.BROWSER);
-                                                List<LogEntry> errorLogs = logEntries.filter(Level.SEVERE);
+                                Logs logs = driver.manage().logs();
+                                LogEntries logEntries = logs.get(LogType.BROWSER);
+                                List<LogEntry> errorLogs = logEntries.filter(Level.SEVERE);
 
-                                                if (errorLogs.size() != 0) {
-                                                    for (LogEntry logEntry : logEntries) {
-                                                        ExecutionLog.log("Found error in logs for url \"" + url + "\" and message : " + logEntry.getMessage());
-                                                        writer.println("Found error in logs for url \"" + url + "\" and message : " + logEntry.getMessage());
-                                                    }
-                                                    writer.println();
-                                                    ExecutionLog.log(errorLogs.size() + " Console error found");
-                                                }
-                                                driver.switchTo().defaultContent();
-                                            } catch (Exception e) {
-                                                ExecutionLog.log("Error occur during execution of url: " + url);
-                                                writer.println("Error occur during execution of url: " + url);
-                                                e.printStackTrace();
-                                            }
-                                            driver.close(); //closing child window
-                                            driver.switchTo().window(parentWindow); //cntrl to parent window
-                                        }
-                                    } catch (Exception e) {
-                                        if (!childWindow.equals(parentWindow)) {
-                                            driver.close(); //closing child window
-                                        }
-                                        driver.switchTo().window(parentWindow); //cntrl to parent window
-                                        e.printStackTrace();
-                                        ExecutionLog.log("Invalid URL found: " + url);
-                                        writer.println("Invalid URL found: " + url);
+                                if (errorLogs.size() != 0) {
+                                    Thread.sleep(2000);
+                                    for (LogEntry logEntry : logEntries) {
+                                        Thread.sleep(2000);
+                                        ExecutionLog.log("Found error in logs for url \"" + url + "\" and message : " + logEntry.getMessage());
+                                        writer.println("Found error in logs for url \"" + url + "\" and message : " + logEntry.getMessage());
                                     }
+                                    writer.println();
+                                    ExecutionLog.log(errorLogs.size() + " Console error found");
                                 }
-                                writer.close();
+
                             } catch (Exception e) {
-                                ExecutionLog.log("Invalid URL found: " + url);
-                                writer.println("Invalid URL found: " + url);
-                                writer.close();
+                                Thread.sleep(2000);
+                                ExecutionLog.log("Error occur during execution of url: " + url);
+                                writer.println("Error occur during execution of url: " + url);
                                 e.printStackTrace();
                             }
+                            Thread.sleep(2000);
+                            writer.close();
+                        } catch (Exception e) {
+                            ExecutionLog.log("Invalid URL found: " + url);
+                            e.printStackTrace();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-                writer.close();
             }
         } catch (Exception e) {
-            writer.println("Error occur during execution");
-            writer.close();
             e.printStackTrace();
         }
     }

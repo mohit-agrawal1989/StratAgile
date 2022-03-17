@@ -42,13 +42,13 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                 dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport");
                 dir.mkdir();
                 //String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
-                String[] countryURLToNavigate = splitResponsiveData[0].replaceAll(country[0] + "# ", "").split(", ");
+                String[] countryURLToNavigate = splitResponsiveData[0].replaceAll(country[0] + "# ", "").split(",");
                 writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "BrokenImagesReport.txt", "UTF-8");
                 for (int x = 0; x < countryURLToNavigate.length; x++) {
                     try {
                         writer.println("________________________________________________________________________________________");
-                        System.out.println("URL to be hit: " + countryURLToNavigate[x]);
-                        String newUrl = countryURLToNavigate[x];
+                        System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
+                        String newUrl = countryURLToNavigate[x].replace("\"", "");
                         driver.navigate().to(newUrl);
                         writer.println("Validating the Page : " + newUrl);
                         new WebDriverWait(driver, 60).until(webDriver ->

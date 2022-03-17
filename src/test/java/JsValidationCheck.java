@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.ExecutionLog;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -26,36 +27,45 @@ public class JsValidationCheck extends ParentClass {
             directoryPath = ParentClass.readApplicationFile("outputPath", path) + File.separator + "" + country[0] + "" + File.separator + "" + date;
             File dir = new File(directoryPath + "" + File.separator + "JsValidationSummary");
             dir.mkdir();
-            String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
+            String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(",");
             writer = new PrintWriter(directoryPath + "" + File.separator + "JsValidationSummary" + File.separator + "JsValidationReport.txt", "UTF-8");
             for (int x = 0; x < countryURLToNavigate.length; x++) {
                 try {
                     writer.println("________________________________________________________________________________________");
-                    System.out.println("URL to be hit: " + countryURLToNavigate[x]);
-                    String newUrl = countryURLToNavigate[x];
+                    System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
+                    String newUrl = countryURLToNavigate[x].replace("\"", "");
                     driver.manage().deleteAllCookies();
                     driver.quit();
-
-                    DesiredCapabilities caps = new DesiredCapabilities();
-                    caps.setCapability("os", readApplicationFile("os", path));
-                    caps.setCapability("os_version", readApplicationFile("os_version", path));
-                    caps.setCapability("browser", readApplicationFile("browser", path));
-                    caps.setCapability("browser_version", readApplicationFile("browser_version", path));
-                    caps.setCapability("project", "Standard Chartered");
-                    caps.setCapability("build", "1");
-                    caps.setCapability("name", "ST");
-                    caps.setCapability("browserstack.local", "true");
-                    caps.setCapability("browserstack.debug", "true");
-                    caps.setCapability("browserstack.networkLogs", "true");
-                    caps.setCapability("browserstack.selenium_version", "3.14.0");
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--no-sandbox");
-                    if(parentClass.headless.equalsIgnoreCase("yes")){
-                        options.addArguments("--headless");
+
+
+                    if (readApplicationFile("browserStackExecution", path).equalsIgnoreCase("yes")) {
+                        DesiredCapabilities caps = new DesiredCapabilities();
+                        caps.setCapability("os", readApplicationFile("os", path));
+                        caps.setCapability("os_version", readApplicationFile("os_version", path));
+                        caps.setCapability("browser", readApplicationFile("browser", path));
+                        caps.setCapability("browser_version", readApplicationFile("browser_version", path));
+                        caps.setCapability("project", "Standard Chartered");
+                        caps.setCapability("build", "1");
+                        caps.setCapability("name", "ST");
+                        caps.setCapability("browserstack.local", "true");
+                        caps.setCapability("browserstack.debug", "true");
+                        caps.setCapability("browserstack.networkLogs", "true");
+                        caps.setCapability("browserstack.selenium_version", "3.14.0");
+                        caps.setCapability(ChromeOptions.CAPABILITY, options);
+
+                        driver = new RemoteWebDriver(new URL(URL), caps);
+                    } else {
+                        if (headless.equalsIgnoreCase("yes")) {
+                            options.addArguments("--headless");
+                        }
+                        options.addArguments("--no-sandbox");
+                        options.addArguments("--disable-gpu");
+                        options.addArguments("--incognito");
+                        options.addArguments("--disable-dev-shm-usage");
+                        options.addArguments("--window-size=1600x900");
+                        driver = new ChromeDriver(options);
                     }
-                    caps.setCapability(ChromeOptions.CAPABILITY, options);
-                    driver = new RemoteWebDriver(new URL(URL), caps);
-                    //driver = new ChromeDriver(options);
                     ExecutionLog.log("Browser has been initiated successfully");
                     driver.manage().window().maximize();
                     ExecutionLog.log("Window has been maximized to full screen");

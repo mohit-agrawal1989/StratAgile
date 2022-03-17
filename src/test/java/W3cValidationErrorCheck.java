@@ -24,13 +24,13 @@ public class W3cValidationErrorCheck extends ParentClass {
             directoryPath = ParentClass.readApplicationFile("outputPath", path) + File.separator + "" + country[0] + "" + File.separator + "" + date;
             File dir = new File(directoryPath + "" + File.separator + "W3cValidationSummary");
             dir.mkdir();
-            String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
+            String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(",");
             writer = new PrintWriter(directoryPath + "" + File.separator + "W3cValidationSummary" + File.separator + "W3cValidationReport.txt", "UTF-8");
             for (int x = 0; x < countryURLToNavigate.length; x++) {
                 try {
                     writer.println("________________________________________________________________________________________");
-                    System.out.println("URL to be hit: " + countryURLToNavigate[x]);
-                    String newUrl = countryURLToNavigate[x];
+                    System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
+                    String newUrl = countryURLToNavigate[x].replace("\"", "");
 
                     driver.navigate().to("https://validator.w3.org/");
                     new WebDriverWait(driver, 60).until(webDriver ->

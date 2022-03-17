@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46069165-e404-4831-a535-3f22e125c83f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/classes/utility/ExecutionLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/BrokenImageTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/BrokenLinkTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/ConsoleLogsValidationCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/JsValidationCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/ParentClass$WebBrowser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/ParentClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/ResponseDimensionCheckBrokenImages.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/ResponseDimensionCheckBrokenLinks.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/ResponsiveDimensionConsoleLogsCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/${project.build.directory}/test-classes/W3cValidationErrorCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExecutionLog/Report-2022-02-19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ExecutionLog/Report-2022-02-19.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,17 +97,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ParentClass.java</url>
-          <line>156</line>
+          <line>194</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ParentClass.java</url>
-          <line>43</line>
+          <line>57</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ParentClass.java</url>
-          <line>136</line>
+          <line>174</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

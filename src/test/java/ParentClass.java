@@ -1,8 +1,4 @@
 import au.com.bytecode.opencsv.CSVReader;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -28,28 +24,22 @@ public class ParentClass {
     enum WebBrowser {Chrome}
 
     public static WebDriver driver;
-    //public static AppiumDriver appiumDriver = null;
-    //AndroidDriver androidDriver = (AndroidDriver) driver;
-    //IOSDriver iosDriver = (IOSDriver) driver;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
-    String driverType = "chrome";
+    public static String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
-    String os = "windows";
-    public String headless = readApplicationFile("headless", path);  // Define the value as "Yes" if want to run in headless mode
     public static WebDriverWait wait, waitForAlert;
     public String country = "", filePath = "";
     Object[][] data = null;
-
     String[] countryArray;
     public static String directoryPath = "", date;
-    static String path = "config.properties";
+    public static String path = "config.properties";
+    public static String headless = readApplicationFile("headless", path);
     static String responsivePath = "responsiveDevices.properties";
     public Map<Integer, String> map = new LinkedHashMap<Integer, String>();
     public Map<Object, Object> responsiveDeviceData = new LinkedHashMap<>();
     public static final String browserStackUserName = readApplicationFile("browserStackUserName", path);
     public static final String browserStackAccessKey = readApplicationFile("browserStackAccessKey", path);
     public static final String URL = "https://" + browserStackUserName + ":" + browserStackAccessKey + "@hub-cloud.browserstack.com/wd/hub";
-    //public static final String URL = "http://hub.browserstack.com/wd/hub";
     public String responsiveDataCollection = "";
 
 
@@ -96,74 +86,56 @@ public class ParentClass {
 
     @BeforeTest
     public void setup() throws MalformedURLException {
+
         if (driver == null) {
 
-            if (os.equalsIgnoreCase("Windows")) {
+            if (readApplicationFile("os", path).equalsIgnoreCase("Windows")) {
                 if (driverType.equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + File.separator + "drivers" + File.separator + "chromedriver.exe");
-            } else if (os.equalsIgnoreCase("Mac")) {
+            } else if (readApplicationFile("os", path).equalsIgnoreCase("Mac")) {
                 if (driverType.equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_mac");
+            }else if(readApplicationFile("os", path).equalsIgnoreCase("linux")){
+                if (driverType.equalsIgnoreCase("chrome"))
+                    System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_linux");
             }
-
+            ChromeOptions options = new ChromeOptions();
             //Check if desired browser is Chrome
             if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
-                ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--no-sandbox");
-                if(headless.equalsIgnoreCase("yes")){
-                    options.addArguments("--headless");
+                //Check if execution is meant to be run or browserStackExecution or in a natural way
+                if (readApplicationFile("browserStackExecution", path).equalsIgnoreCase("yes")) {
+
+                    DesiredCapabilities caps = new DesiredCapabilities();
+                    caps.setCapability("os", readApplicationFile("os", path));
+                    caps.setCapability("os_version", readApplicationFile("os_version", path));
+                    caps.setCapability("browser", readApplicationFile("browser", path));
+                    caps.setCapability("browser_version", readApplicationFile("browser_version", path));
+                    caps.setCapability("project", "Standard Chartered");
+                    caps.setCapability("build", "1");
+                    caps.setCapability("name", "ST");
+                    caps.setCapability("browserstack.local", "true");
+                    caps.setCapability("browserstack.debug", "true");
+                    caps.setCapability("browserstack.networkLogs", "true");
+                    caps.setCapability("browserstack.selenium_version", "3.14.0");
+                    caps.setCapability(ChromeOptions.CAPABILITY, options);
+
+                    driver = new RemoteWebDriver(new URL(URL), caps);
+                }else {
+                    if (headless.equalsIgnoreCase("yes")) {
+                        options.addArguments("--headless");
+                    }
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--incognito");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--window-size=1600x900");
+                    driver = new ChromeDriver(options);
                 }
-                //options.addArguments("--disable-gpu");
-                //options.addArguments("--incognito");
-                //options.addArguments("--disable-dev-shm-usage");
-                //options.addArguments("--window-size=1600x900");
-                DesiredCapabilities caps = new DesiredCapabilities();
-                caps.setCapability("os", readApplicationFile("os", path));
-                caps.setCapability("os_version", readApplicationFile("os_version", path));
-                caps.setCapability("browser", readApplicationFile("browser", path));
-                caps.setCapability("browser_version", readApplicationFile("browser_version", path));
-                caps.setCapability("project", "Standard Chartered");
-                caps.setCapability("build", "1");
-                caps.setCapability("name", "ST");
-                caps.setCapability("browserstack.local", "true");
-                caps.setCapability("browserstack.debug", "true");
-                caps.setCapability("browserstack.networkLogs", "true");
-                caps.setCapability("browserstack.selenium_version", "3.14.0");
-                caps.setCapability("browserstack.idleTimeout", "300");
-                caps.setCapability(ChromeOptions.CAPABILITY, options);
-//                caps.setCapability("os_version", "10.0");
-//                caps.setCapability("device", "Samsung Galaxy S20");
-//                caps.setCapability("real_mobile", "true");
-//                caps.setCapability("project", "Standard Chartered");
-//                caps.setCapability("build", "1");
-//                caps.setCapability("name", "ST");
-//                caps.setCapability("browserstack.local", "true");
-//                caps.setCapability("browserstack.debug", "true");
-//                caps.setCapability("browserstack.networkLogs", "true");
-                //appiumDriver = new AndroidDriver(new URL(URL), caps);
-                //AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL(URL), caps);
-                driver = new RemoteWebDriver(new URL(URL), caps);
-//                driver = new ChromeDriver(caps);
-//                country = "in".toLowerCase();
+
+//                country = "sg".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
-                //filePath = System.getProperty("filePath");
                 System.out.println("Country: " + country);
-                //System.out.println("FilePath: " + filePath);
-
             }
-
-//            //If browser type is not matched, exit from the system
-//            else {
-//                String path = getPath();
-//                System.setProperty("webdriver.chrome.driver", path + File.separator + "drivers" + File.separator + "chromedriver");
-//                ChromeOptions options = new ChromeOptions();
-//                options.addArguments("--no-sandbox");
-//                options.addArguments("--headless");
-//                options.addArguments("--disable-gpu");
-//                options.addArguments("--disable-dev-shm-usage");
-//                options.addArguments("--window-size=1325x744");
-//                driver = new ChromeDriver(options);
-//            }
         }
         ExecutionLog.log("Browser has been initiated successfully");
         driver.manage().window().maximize();
@@ -202,78 +174,52 @@ public class ParentClass {
             }
             System.out.println("No of directories: " + numberOfSubFolders);
 
+
+
+            String line;
             int pageCount = 0;
             for (int i = 0; i < numberOfSubFolders; i++) {
-                CSVReader reader = new CSVReader(new FileReader(readApplicationFile("inputPath", path) + File.separator + countryArray[i] + File.separator + "url.csv"));
-                String[] nextLine;
-                //reads one line at a time
-                while ((nextLine = reader.readNext()) != null) {
-                    for (String token : nextLine) {
-                        String[] countryURLToNavigate = token.split(", ");
-                        if (countryURLToNavigate.length > pageCount) {
+            //parsing a CSV file into Scanner class constructor
+                BufferedReader br = new BufferedReader(new FileReader(readApplicationFile("inputPath", path) + File.separator + countryArray[i] + File.separator + "url.csv"));
+                while ((line = br.readLine()) != null)   //returns a Boolean value
+                {
+                    line = line.replaceAll("\"\"", "\"");
+                    String[] countryURLToNavigate = line.split(",");    // use comma as separator
+                    if (countryURLToNavigate.length > pageCount) {
                             pageCount = countryURLToNavigate.length;
-                        }
-                        map.put(i, countryArray[i] + "# " + token);
-                        System.out.print(token);
                     }
-                    System.out.print("\n");
-
+                    map.put(i, countryArray[i] + "# " + line);
+                    System.out.print(line);
                 }
+                System.out.print("\n");
             }
+
+
+//            int pageCount = 0;
+//            for (int i = 0; i < numberOfSubFolders; i++) {
+//                CSVReader reader = new CSVReader(new FileReader(readApplicationFile("inputPath", path) + File.separator + countryArray[i] + File.separator + "url.csv"));
+//                String[] nextLine;
+//                //reads one line at a time
+//                while ((nextLine = reader.readNext()) != null) {
+//                    for (String token : nextLine) {
+//                        String[] countryURLToNavigate = token.split(",");
+//                        if (countryURLToNavigate.length > pageCount) {
+//                            pageCount = countryURLToNavigate.length;
+//                        }
+//                        map.put(i, countryArray[i] + "# " + token);
+//                        System.out.print(token);
+//                    }
+//                    System.out.print("\n");
+//
+//                }
+//            }
 
             data = new Object[countryArray.length][pageCount + responsiveDeviceData.size()];
             for (int m = 0; m < map.size(); m++) {
                 data[m][0] = map.get(m) + responsiveDataCollection;
             }
-
-
-//  Original Code
-//            data = new Object[countryArray.length][pageCount];
-//            for (int m = 0; m < map.size(); m++) {
-//                data[m][0] = map.get(m);
-//            }
-
-
-//        Scanner sc = new Scanner(new File(filePath));
-//            sc.useDelimiter(", ");   //sets the delimiter pattern
-//            int count = 0;
-//            data = new Object[2][3];
-//            while (sc.hasNext())  //returns a boolean value
-//            {
-//                String x = sc.next();
-//                System.out.print(x);  //find and returns the next complete token from this scanner
-//                data[0][count] = x;
-//                count++;
-//            }
-//            sc.close();  //closes the scanner
-
-//                filename = new FileInputStream(filePath);
-//                workbook = new XSSFWorkbook(filename);
-//                sheet = workbook.getSheetAt(0);
-//                Row_count = sheet.getLastRowNum();
-//                System.out.println("Row Count: " +Row_count);
-//                Col_count = sheet.getRow(0).getLastCellNum();
-
-            //data = new Object[count][3];
-
-//                for(int i = 0; i < count; i++){
-//                    String country = sheet.getRow(i).getCell(0).getStringCellValue().trim(); // Country
-//                    System.out.println("Country "+country);
-//                    System.out.println("");
-//                    String [] urlArray = sheet.getRow(i).getCell(1).getStringCellValue().trim().split(", "); // URL
-//                    for(int j = 0; j < urlArray.length; j++){
-//                        data[i][j] = country + "# "+urlArray[j];
-//                        System.out.println("++ "+data[i][j]);
-//                        System.out.println("");
-//                    }
-//                    //data[i][1] = sheet.getRow(i).getCell(1).getStringCellValue().trim(); // URL
-//
-//                }
-
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            //workbook.close();
         }
         return data;
     }
