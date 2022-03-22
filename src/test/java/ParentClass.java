@@ -132,7 +132,7 @@ public class ParentClass {
                     driver = new ChromeDriver(options);
                 }
 
-//                country = "sg".toLowerCase();
+//                country = "in".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
                 System.out.println("Country: " + country);
             }
@@ -184,6 +184,7 @@ public class ParentClass {
                 while ((line = br.readLine()) != null)   //returns a Boolean value
                 {
                     line = line.replaceAll("\"\"", "\"");
+                    line = line.replaceAll(" ", "");
                     String[] countryURLToNavigate = line.split(",");    // use comma as separator
                     if (countryURLToNavigate.length > pageCount) {
                             pageCount = countryURLToNavigate.length;

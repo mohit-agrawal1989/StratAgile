@@ -134,8 +134,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                 writer.close();
             }
         } catch (Exception e) {
-            writer.println("Error occur during execution");
-            writer.close();
+            writer.println("Exception occurred in the main try block");
             e.printStackTrace();
         }
     }

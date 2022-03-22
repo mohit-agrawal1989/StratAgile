@@ -80,10 +80,12 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                                 e.printStackTrace();
                             }
                             Thread.sleep(2000);
-                            writer.close();
                         } catch (Exception e) {
                             ExecutionLog.log("Invalid URL found: " + url);
                             e.printStackTrace();
+                        }
+                        finally {
+                            writer.close();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

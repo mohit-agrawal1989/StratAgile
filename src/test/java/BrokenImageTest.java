@@ -86,11 +86,12 @@ public class BrokenImageTest extends ParentClass {
                     e.printStackTrace();
                 }
             }
-            writer.close();
         } catch (Exception e) {
-            writer.println("Error occur during execution");
-            writer.close();
+            writer.println("Exception occurred in the main try block");
             e.printStackTrace();
+        }
+        finally {
+            writer.close();
         }
     }
 }

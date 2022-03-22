@@ -123,15 +123,13 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                         }
                     } catch (Exception e) {
                         writer.println("Error occur during execution of url : " + url);
-                        writer.close();
                         e.printStackTrace();
                     }
                 }
                 writer.close();
             }
         } catch (Exception e) {
-            writer.println("Error occur during execution");
-            writer.close();
+            writer.println("Exception occurred in the main try block");
             e.printStackTrace();
         }
     }

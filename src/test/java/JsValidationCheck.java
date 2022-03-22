@@ -99,16 +99,16 @@ public class JsValidationCheck extends ParentClass {
                     ExecutionLog.log("JS passed count : " + jsPassedCount);
                     writer.println("JS passed count : " + jsPassedCount);
                 } catch (Exception e) {
-                    writer.println("Error occur during execution");
-                    writer.close();
+                    writer.println("Error occur during execution inside the loop iteration");
                     e.printStackTrace();
                 }
             }
-            writer.close();
         } catch (Exception e) {
-            writer.println("Error occur during execution");
-            writer.close();
+            writer.println("Exception occurred in the main try block");
             e.printStackTrace();
+        }
+        finally{
+            writer.close();
         }
     }
 }

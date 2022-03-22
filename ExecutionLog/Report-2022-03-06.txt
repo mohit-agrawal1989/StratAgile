@@ -1,6 +1,0 @@
-Mar 06,2022 22:11:02 [info]  Browser has been initiated successfully
-Mar 06,2022 22:11:02 [info]  Window has been maximized to full screen
-Mar 06,2022 22:13:00 [info]  Browser has been initiated successfully
-Mar 06,2022 22:13:01 [info]  Window has been maximized to full screen
-Mar 06,2022 22:13:09 [info]  Validating the page for W3C error check : https://www.sc.com/sg/
-Mar 06,2022 22:13:11 [info]  Entered the standard chartered url for validation into the address bar for validation

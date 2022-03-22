@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="46069165-e404-4831-a535-3f22e125c83f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/configuration/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configuration/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BrokenImageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrokenImageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BrokenLinkTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BrokenLinkTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ConsoleLogsValidationCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ConsoleLogsValidationCheck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/JsValidationCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/JsValidationCheck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ParentClass$WebBrowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParentClass$WebBrowser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ParentClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParentClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ResponseDimensionCheckBrokenImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ResponseDimensionCheckBrokenImages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ResponseDimensionCheckBrokenLinks.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ResponseDimensionCheckBrokenLinks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ResponsiveDimensionConsoleLogsCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ResponsiveDimensionConsoleLogsCheck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/W3cValidationErrorCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/W3cValidationErrorCheck.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
