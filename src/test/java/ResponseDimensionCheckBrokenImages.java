@@ -22,7 +22,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
     static boolean linkCheck = false;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     static HttpURLConnection huc = null;
-    static int responseCode = 200;
+    static int responseCode = 200, responsiveBrokenImageCounter = 0;
 
     public static void responsiveDimensionBrokenImagesValidation(String[] countryURL) {
         try {
@@ -44,6 +44,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                 //String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(", ");
                 String[] countryURLToNavigate = splitResponsiveData[0].replaceAll(country[0] + "# ", "").split(",");
                 writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenImagesReport" + File.separator + "BrokenImagesReport.txt", "UTF-8");
+                responsiveBrokenImageCounter = 0;
                 for (int x = 0; x < countryURLToNavigate.length; x++) {
                     try {
                         writer.println("________________________________________________________________________________________");
@@ -86,6 +87,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
 
                                 if (url == null || url.isEmpty()) {
                                     linkCheck = true;
+                                    responsiveBrokenImageCounter += 1;
                                     ExecutionLog.log(url + " URL is either not configured for img tag or it is empty");
                                     writer.println(url + " URL is either not configured for img tag or it is empty");
                                     continue;
@@ -102,6 +104,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
 
                                     if (responseCode >= 400) {
                                         linkCheck = true;
+                                        responsiveBrokenImageCounter += 1;
                                         ExecutionLog.log(url + " is a broken image");
                                         writer.println(url + " is a broken image");
                                     } else {
@@ -109,6 +112,7 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                                     }
                                 } catch (Exception e) {
                                     linkCheck = true;
+                                    responsiveBrokenImageCounter += 1;
                                     ExecutionLog.log(url + " This page threw the error");
                                     writer.println(url + " This page threw the error");
                                     e.printStackTrace();
@@ -118,18 +122,22 @@ public class ResponseDimensionCheckBrokenImages extends ParentClass {
                                 writer.println("No broken image found in the execution");
                             }
                         } catch (Exception e) {
+                            responsiveBrokenImageCounter += 1;
                             writer.println("Error occur during execution of url : " + url);
                             e.printStackTrace();
                         }
                     } catch (Exception e) {
+                        responsiveBrokenImageCounter += 1;
                         writer.println("Error occur during execution of url : " + url);
                         e.printStackTrace();
                     }
                 }
+                writer.println("***************************************************************************");
+                writer.println();
+                writer.println("Total error found in responsive broken image validation : "+ responsiveBrokenImageCounter);
                 writer.close();
             }
         } catch (Exception e) {
-            writer.println("Exception occurred in the main try block");
             e.printStackTrace();
         }
     }

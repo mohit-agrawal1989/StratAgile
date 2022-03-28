@@ -17,6 +17,7 @@ public class JsValidationCheck extends ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     static ParentClass parentClass = new ParentClass();
     private static PrintWriter writer;
+    static int errorCounter = 0;
 
     public static void jsValidation(String[] countryURL) {
         try {
@@ -32,6 +33,7 @@ public class JsValidationCheck extends ParentClass {
             for (int x = 0; x < countryURLToNavigate.length; x++) {
                 try {
                     writer.println("________________________________________________________________________________________");
+                    writer.println();
                     System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
                     String newUrl = countryURLToNavigate[x].replace("\"", "");
                     driver.manage().deleteAllCookies();
@@ -98,6 +100,17 @@ public class JsValidationCheck extends ParentClass {
                     String jsPassedCount = driver.findElement(By.xpath("(//div[@class='summary-graph-split'])[1]//div[@class='progress-item passed']//span")).getText();
                     ExecutionLog.log("JS passed count : " + jsPassedCount);
                     writer.println("JS passed count : " + jsPassedCount);
+                    errorCounter = errorCounter + driver.findElements(By.xpath("//div[@class='report-element failed']//div[@class='report-element-title']//strong")).size();
+                    for(int i = 1; i <= driver.findElements(By.xpath("//div[@class='report-element failed']//div[@class='report-element-title']//strong")).size(); i++){
+                        String errorHeading = driver.findElement(By.xpath("(//div[@class='report-element failed']//div[@class='report-element-title']//strong)["+i+"]")).getText();
+                        String errorDescription = driver.findElement(By.xpath("(//div[@class='report-element failed']//div[@class='report-element-description']//li//div)["+i+"]")).getText();
+                        writer.println();
+                        ExecutionLog.log("Error Heading "+i+" : " + errorHeading);
+                        writer.println("Error Heading "+i+" : " + errorHeading);
+                        ExecutionLog.log("Error Description "+i+" : " + errorDescription);
+                        writer.println("Error Description "+i+" : " + errorDescription);
+                        writer.println();
+                    }
                 } catch (Exception e) {
                     writer.println("Error occur during execution inside the loop iteration");
                     e.printStackTrace();
@@ -108,6 +121,9 @@ public class JsValidationCheck extends ParentClass {
             e.printStackTrace();
         }
         finally{
+            writer.println("*************************************************");
+            writer.println();
+            writer.println("Total error found in Js validation : "+ errorCounter);
             writer.close();
         }
     }

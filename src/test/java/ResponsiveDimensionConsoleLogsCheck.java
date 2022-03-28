@@ -22,6 +22,8 @@ import java.util.logging.Level;
 public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     private static PrintWriter writer;
+    static boolean responsiveConsoleErrorCheck = false;
+    static int brokenResponsiveConsoleLogsCounter = 0;
 
     public static void responsiveDimensionConsoleLogsCheck(String[] countryURL) {
         try {
@@ -42,21 +44,20 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
                 dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport");
                 dir.mkdir();
                 String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(",");
-
+                writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + "Console Error Report.txt", "UTF-8");
+                brokenResponsiveConsoleLogsCounter = 0;
                 for (int x = 0; x < countryURLToNavigate.length; x++) {
                     try {
+                        writer.println("________________________________________________________________________________________");
                         System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
                         String newUrl = countryURLToNavigate[x].replace("\"", "");
                         driver.navigate().to(newUrl);
+                        writer.println("Validating the Page : " + newUrl);
+                        writer.println();
                         new WebDriverWait(driver, 60).until(webDriver ->
                                 js.executeScript("return document.readyState").equals("complete"));
-                        dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "."));
-                        dir.mkdir();
                         try {
                             url = newUrl;
-                            String[] urlExtension = url.split("/");
-                            //System.out.println("URL Extension: " + urlExtension[urlExtension.length - 1]);
-                            writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "ConsoleErrorsReport" + "" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", ".") + File.separator + "" + urlExtension[urlExtension.length - 1].replaceAll("/ " + File.separator + " : * ? \" < > |", "") + ".txt", "UTF-8");
                             try {
                                 Logs logs = driver.manage().logs();
                                 LogEntries logEntries = logs.get(LogType.BROWSER);
@@ -64,8 +65,10 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
 
                                 if (errorLogs.size() != 0) {
                                     Thread.sleep(2000);
+                                    brokenResponsiveConsoleLogsCounter += 1;
                                     for (LogEntry logEntry : logEntries) {
                                         Thread.sleep(2000);
+                                        responsiveConsoleErrorCheck = true;
                                         ExecutionLog.log("Found error in logs for url \"" + url + "\" and message : " + logEntry.getMessage());
                                         writer.println("Found error in logs for url \"" + url + "\" and message : " + logEntry.getMessage());
                                     }
@@ -75,22 +78,30 @@ public class ResponsiveDimensionConsoleLogsCheck extends ParentClass {
 
                             } catch (Exception e) {
                                 Thread.sleep(2000);
+                                responsiveConsoleErrorCheck = true;
+                                brokenResponsiveConsoleLogsCounter += 1;
                                 ExecutionLog.log("Error occur during execution of url: " + url);
                                 writer.println("Error occur during execution of url: " + url);
                                 e.printStackTrace();
                             }
                             Thread.sleep(2000);
                         } catch (Exception e) {
+                            responsiveConsoleErrorCheck = true;
+                            brokenResponsiveConsoleLogsCounter += 1;
                             ExecutionLog.log("Invalid URL found: " + url);
                             e.printStackTrace();
                         }
-                        finally {
-                            writer.close();
+                        if (!responsiveConsoleErrorCheck) {
+                            writer.println("No console error found in the execution");
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
+                writer.println("*****************************************************************************");
+                writer.println();
+                writer.println("Total error found in responsive console logs validation : " + brokenResponsiveConsoleLogsCounter);
+                writer.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

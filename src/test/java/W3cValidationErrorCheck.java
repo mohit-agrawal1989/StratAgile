@@ -15,6 +15,7 @@ public class W3cValidationErrorCheck extends ParentClass {
     private static PrintWriter writer;
     static SoftAssert softAssert = new SoftAssert();
     static String path = "config.properties";
+    static int errorCounter = 0;
     public static void w3cValidation(String[] countryURL) {
         try {
             String[] splitResponsiveData = countryURL[0].split("@@");
@@ -61,6 +62,7 @@ public class W3cValidationErrorCheck extends ParentClass {
                         }
                     }
                     List<WebElement> errorList = driver.findElements(By.xpath("//div[@id='results']//li[contains(@class,'error')]"));
+                    errorCounter = errorCounter + errorList.size();
                     if (errorList.size() > 0) {
                         for (int j = 1; j <= errorList.size(); j++) {
                             String errorMessage = driver.findElement(By.xpath("((//div[@id='results']//li[contains(@class,'error')])[" + j + "]//span)[1]")).getText().trim();
@@ -78,6 +80,9 @@ public class W3cValidationErrorCheck extends ParentClass {
             e.printStackTrace();
         }
         finally {
+            writer.println("*************************************************");
+            writer.println();
+            writer.println("Total error in W3C validation : "+ errorCounter);
             writer.close();
         }
     }

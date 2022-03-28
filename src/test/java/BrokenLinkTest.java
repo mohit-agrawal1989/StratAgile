@@ -19,6 +19,7 @@ public class BrokenLinkTest extends ParentClass {
     static boolean linkCheck = false, parentLinkExecution;
     private static PrintWriter writer;
     static boolean alertFlag = false;
+    static int brokenLinkCounter = 0;
 
     public static void brokenLinkValidationCheck(String[] countryURL) {
         try {
@@ -38,11 +39,12 @@ public class BrokenLinkTest extends ParentClass {
                     String newUrl = countryURLToNavigate[x].replace("\"", "");
                     driver.navigate().to(newUrl);
                     writer.println("Validating the Page : " + newUrl);
+                    writer.println();
                     new WebDriverWait(driver, 60).until(webDriver ->
                             js.executeScript("return document.readyState").equals("complete"));
                     String str = driver.getPageSource();
                     if(str.equals("<html><head></head><body></body></html>")){
-                        String passwordProtectedURL[] = newUrl.split("://");
+                        String[] passwordProtectedURL = newUrl.split("://");
                         newUrl = passwordProtectedURL[0] + "://sc:sc2016!@" + passwordProtectedURL[1];
                         driver.navigate().to(newUrl);
                     }
@@ -53,6 +55,7 @@ public class BrokenLinkTest extends ParentClass {
 
                     ExecutionLog.log("There are " + allLinks.size() + " url to be verified for broken links");
                     Iterator<WebElement> iterator = allLinks.iterator();
+                    linkCheck = false;
                     do {
                         if(parentLinkExecution){
                             parentLinkExecution = false;
@@ -62,6 +65,7 @@ public class BrokenLinkTest extends ParentClass {
                         }
                         if (url == null || url.isEmpty()) {
                             linkCheck = true;
+                            brokenLinkCounter += 1;
                             ExecutionLog.log(url + " URL is either not configured for anchor tag or it is empty");
                             writer.println(url + " URL is either not configured for anchor tag or it is empty");
                             continue;
@@ -78,6 +82,7 @@ public class BrokenLinkTest extends ParentClass {
 
                             if (responseCode >= 400) {
                                 linkCheck = true;
+                                brokenLinkCounter += 1;
                                 ExecutionLog.log(url + " is a broken link");
                                 writer.println(url + " is a broken link");
                             } else {
@@ -85,6 +90,7 @@ public class BrokenLinkTest extends ParentClass {
                             }
                         } catch (Exception e) {
                             linkCheck = true;
+                            brokenLinkCounter += 1;
                             ExecutionLog.log(url + " This url threw the error");
                             writer.println(url + " This url threw the error");
                             e.printStackTrace();
@@ -94,15 +100,20 @@ public class BrokenLinkTest extends ParentClass {
                         writer.println("No broken link found in the execution");
                     }
                 } catch (Exception e) {
+                    brokenLinkCounter += 1;
                     writer.println("Error occur during execution while testing url : " + url);
                     e.printStackTrace();
                 }
             }
         } catch (Exception e) {
+            brokenLinkCounter += 1;
             writer.println("Exception occurred in the main try block");
             e.printStackTrace();
         }
         finally {
+            writer.println("*************************************************");
+            writer.println();
+            writer.println("Total error found in broken link validation : "+ brokenLinkCounter);
             writer.close();
         }
     }

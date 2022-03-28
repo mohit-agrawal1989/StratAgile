@@ -43,10 +43,10 @@ public class ParentClass {
     public String responsiveDataCollection = "";
 
 
-    @Test(priority = 0, dataProvider = "testData")
-    public void w3cValidationCheck(String[] countryURL) {
-        W3cValidationErrorCheck.w3cValidation(countryURL); // Checking the w3c validation of warnings and errors
-    }
+//    @Test(priority = 0, dataProvider = "testData")
+//    public void w3cValidationCheck(String[] countryURL) {
+//        W3cValidationErrorCheck.w3cValidation(countryURL); // Checking the w3c validation of warnings and errors
+//    }
 
     @Test (priority = 1, dataProvider = "testData")
     public void jsValidationCheck(String[] countryURL){
@@ -55,12 +55,13 @@ public class ParentClass {
 
     @Test (priority = 2, dataProvider = "testData")
     public void brokenLinkCheck(String[] countryURL){
-        BrokenLinkTest.brokenLinkValidationCheck(countryURL); // Checking for broken links on Standard Chartered home page
+        BrokenLinkTest.brokenLinkValidationCheck(countryURL); // Checking for broken links
     }
 
     @Test (priority = 3, dataProvider = "testData")
     public void brokenImagesCheck(String[] countryURL)  {
-        BrokenImageTest.brokenImageValidationCheck(countryURL); // Checking for broken images on Standard Chartered home page
+        BrokenImageTest.brokenImageValidationCheck(countryURL); // Checking for broken images
+        BrokenImageTest.brokenSrcSetValidationCheck(countryURL); // Checking for broken srcSet
     }
 
     @Test (priority = 4, dataProvider = "testData")
@@ -132,7 +133,7 @@ public class ParentClass {
                     driver = new ChromeDriver(options);
                 }
 
-//                country = "in".toLowerCase();
+                // country = "sg".toLowerCase();
                 country = System.getProperty("country").toLowerCase();
                 System.out.println("Country: " + country);
             }

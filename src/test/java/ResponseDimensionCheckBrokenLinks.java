@@ -23,7 +23,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
     static boolean linkCheck = false, parentLinkExecution;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
     static HttpURLConnection huc = null;
-    static int responseCode = 200;
+    static int responseCode = 200, responsiveBrokenLinkCounter = 0;;
 
     public static void responsiveDimensionBrokenLinksValidation(String[] countryURL) {
         try {
@@ -45,7 +45,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                 dir.mkdir();
                 String[] countryURLToNavigate = countryURL[0].replaceAll(country[0] + "# ", "").split(",");
                 writer = new PrintWriter(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "BrokenLinkReport" + File.separator + "BrokenLinkReport.txt", "UTF-8");
-
+                responsiveBrokenLinkCounter = 0;
                 for (int x = 0; x < countryURLToNavigate.length; x++) {
                     try {
                         writer.println("________________________________________________________________________________________");
@@ -91,6 +91,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                                 }
                                 if (url == null || url.isEmpty()) {
                                     linkCheck = true;
+                                    responsiveBrokenLinkCounter += 1;
                                     ExecutionLog.log(url + " URL is either not configured for anchor tag or it is empty");
                                     writer.println(url + " URL is either not configured for anchor tag or it is empty");
                                     continue;
@@ -107,6 +108,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
 
                                     if (responseCode >= 400) {
                                         linkCheck = true;
+                                        responsiveBrokenLinkCounter += 1;
                                         ExecutionLog.log(url + " is a broken link");
                                         writer.println(url + " is a broken link");
                                     } else {
@@ -114,6 +116,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                                     }
                                 } catch (Exception e) {
                                     linkCheck = true;
+                                    responsiveBrokenLinkCounter += 1;
                                     ExecutionLog.log(url + " This url threw the error");
                                     writer.println(url + " This url threw the error");
                                     e.printStackTrace();
@@ -123,21 +126,23 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                                 writer.println("No broken link found in the execution");
                             }
                         } catch (Exception e) {
+                            responsiveBrokenLinkCounter += 1;
                             writer.println("Error occur during execution of url: " + url);
                             e.printStackTrace();
                         }
                     } catch (Exception e) {
+                        responsiveBrokenLinkCounter += 1;
                         writer.println("Error occur during execution of url: " + url);
                         e.printStackTrace();
                     }
                 }
+                writer.println("***************************************************************************");
+                writer.println();
+                writer.println("Total error found in responsive broken link validation : "+ responsiveBrokenLinkCounter);
                 writer.close();
             }
         } catch (Exception e) {
-            writer.println("Exception occurred in the main try block");
             e.printStackTrace();
         }
     }
-
-
 }
