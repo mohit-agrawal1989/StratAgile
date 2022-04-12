@@ -3,12 +3,18 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import utility.ExecutionLog;
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import static org.apache.commons.lang3.StringUtils.repeat;
 
 public class W3cValidationErrorCheck extends ParentClass {
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -16,6 +22,11 @@ public class W3cValidationErrorCheck extends ParentClass {
     static SoftAssert softAssert = new SoftAssert();
     static String path = "config.properties";
     static int errorCounter = 0;
+    private static final int ALLOWED_ERROR_COUNT = 0;
+    private static final int ALLOWED_WARNING_COUNT = 1;
+    private static final Logger logger = LoggerFactory.getLogger(W3cValidationErrorCheck.class);
+    private W3cValidationErrorCheck() {
+    }
     public static void w3cValidation(String[] countryURL) {
         try {
             String[] splitResponsiveData = countryURL[0].split("@@");
@@ -33,16 +44,17 @@ public class W3cValidationErrorCheck extends ParentClass {
                     System.out.println("URL to be hit: " + countryURLToNavigate[x].replace("\"", ""));
                     String newUrl = countryURLToNavigate[x].replace("\"", "");
 
-                    driver.navigate().to("https://validator.w3.org/");
+                    driver.navigate().to("https://validator.w3.org/nu");
                     new WebDriverWait(driver, 60).until(webDriver ->
                             js.executeScript("return document.readyState").equals("complete"));
                     ExecutionLog.log("Validating the page for W3C error check : " + newUrl);
                     writer.println("Validating the URL page W3C error check  : " + newUrl);
-                    driver.findElement(By.xpath("//label[@title='Address of page to Validate']/following-sibling::input[@type='text']")).sendKeys(newUrl);
+                    driver.findElement(By.xpath("//input[@type='url']")).sendKeys(newUrl);
                     ExecutionLog.log("Entered the standard chartered url for validation into the address bar for validation");
-                    driver.findElement(By.xpath("(//a[@class='submit' and text()='Check'])[1]")).click();
+                    driver.findElement(By.xpath("//input[@type='submit']")).click();
                     ExecutionLog.log("Clicked on the check button to validate the standard chartered url address");
-                    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("(//a[@class='submit' and text()='Check'])[1]")));
+                    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//input[@type='submit']")));
+                    longWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='spinner']")));
                     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='results']")));
                     List<WebElement> elementList = driver.findElements(By.xpath("//div[@id='results']//li"));
                     ExecutionLog.log("There are " + elementList.size() + " results shown after url validation");
@@ -70,12 +82,12 @@ public class W3cValidationErrorCheck extends ParentClass {
                             writer.println("Error message is displayed as \"" + errorMessage + "\"");
                         }
                     }
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     writer.println("Error occur during execution");
                     e.printStackTrace();
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             writer.println("Exception occurred in the main try block");
             e.printStackTrace();
         }
@@ -86,4 +98,5 @@ public class W3cValidationErrorCheck extends ParentClass {
             writer.close();
         }
     }
+
 }

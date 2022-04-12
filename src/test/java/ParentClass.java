@@ -2,6 +2,8 @@ import au.com.bytecode.opencsv.CSVReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,19 +17,19 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.*;;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class ParentClass {
 
-    enum WebBrowser {Chrome}
+//    enum WebBrowser {Chrome, Firefox}
 
     public static WebDriver driver;
     public static JavascriptExecutor js = (JavascriptExecutor) driver;
-    public static String driverType = "chrome";
     static String url = "https://www.sc.com/sg/";
-    public static WebDriverWait wait, waitForAlert;
+    public static WebDriverWait wait, waitForAlert, longWait;
     public String country = "", filePath = "";
     Object[][] data = null;
     String[] countryArray;
@@ -43,40 +45,40 @@ public class ParentClass {
     public String responsiveDataCollection = "";
 
 
-//    @Test(priority = 0, dataProvider = "testData")
-//    public void w3cValidationCheck(String[] countryURL) {
+    @Test(priority = 0, dataProvider = "testData")
+    public void w3cValidationCheck(String[] countryURL) {
 //        W3cValidationErrorCheck.w3cValidation(countryURL); // Checking the w3c validation of warnings and errors
-//    }
+    }
 
     @Test (priority = 1, dataProvider = "testData")
+    public void consoleLogsCheck(String[] countryURL) {
+        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
+    }
+
+    @Test (priority = 2, dataProvider = "testData")
     public void jsValidationCheck(String[] countryURL){
         JsValidationCheck.jsValidation(countryURL); // Checking for javascript warnings and errors
     }
 
-    @Test (priority = 2, dataProvider = "testData")
+    @Test (priority = 3, dataProvider = "testData")
     public void brokenLinkCheck(String[] countryURL){
         BrokenLinkTest.brokenLinkValidationCheck(countryURL); // Checking for broken links
     }
 
-    @Test (priority = 3, dataProvider = "testData")
+    @Test (priority = 4, dataProvider = "testData")
     public void brokenImagesCheck(String[] countryURL)  {
         BrokenImageTest.brokenImageValidationCheck(countryURL); // Checking for broken images
         BrokenImageTest.brokenSrcSetValidationCheck(countryURL); // Checking for broken srcSet
     }
 
-    @Test (priority = 4, dataProvider = "testData")
+    @Test (priority = 5, dataProvider = "testData")
     public void responseDimensionCheckBrokenLinks(String[] countryURL){
         ResponseDimensionCheckBrokenLinks.responsiveDimensionBrokenLinksValidation(countryURL); // Checking for responsive dimension
     }
 
-    @Test (priority = 5, dataProvider = "testData")
+    @Test (priority = 6, dataProvider = "testData")
     public void responseDimensionCheckBrokenImages(String[] countryURL){
         ResponseDimensionCheckBrokenImages.responsiveDimensionBrokenImagesValidation(countryURL); // Checking for responsive dimension
-    }
-
-    @Test (priority = 6, dataProvider = "testData")
-    public void consoleLogsCheck(String[] countryURL) {
-        ConsoleLogsValidationCheck.consoleLogsValidation(countryURL); // Checking the console log errors
     }
 
     @Test (priority = 7, dataProvider = "testData")
@@ -91,21 +93,23 @@ public class ParentClass {
         if (driver == null) {
 
             if (readApplicationFile("os", path).equalsIgnoreCase("Windows")) {
-                if (driverType.equalsIgnoreCase("chrome"))
+                if (readApplicationFile("browser", path).equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + File.separator + "drivers" + File.separator + "chromedriver.exe");
+                if (readApplicationFile("browser", path).equalsIgnoreCase("firefox"))
+                    System.setProperty("webdriver.gecko.driver", getPath() + File.separator + "drivers" + File.separator + "geckodriver.exe");
             } else if (readApplicationFile("os", path).equalsIgnoreCase("Mac")) {
-                if (driverType.equalsIgnoreCase("chrome"))
+                if (readApplicationFile("browser", path).equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_mac");
             }else if(readApplicationFile("os", path).equalsIgnoreCase("linux")){
-                if (driverType.equalsIgnoreCase("chrome"))
+                if (readApplicationFile("browser", path).equalsIgnoreCase("chrome"))
                     System.setProperty("webdriver.chrome.driver", getPath() + "" + File.separator + "drivers" + File.separator + "chromedriver_linux");
             }
-            ChromeOptions options = new ChromeOptions();
+
             //Check if desired browser is Chrome
-            if (WebBrowser.Chrome.toString().equalsIgnoreCase(driverType)) {
+            if (readApplicationFile("browser", path).equalsIgnoreCase("chrome")) {
+                ChromeOptions options = new ChromeOptions();
                 //Check if execution is meant to be run or browserStackExecution or in a natural way
                 if (readApplicationFile("browserStackExecution", path).equalsIgnoreCase("yes")) {
-
                     DesiredCapabilities caps = new DesiredCapabilities();
                     caps.setCapability("os", readApplicationFile("os", path));
                     caps.setCapability("os_version", readApplicationFile("os_version", path));
@@ -119,7 +123,6 @@ public class ParentClass {
                     caps.setCapability("browserstack.networkLogs", "true");
                     caps.setCapability("browserstack.selenium_version", "3.14.0");
                     caps.setCapability(ChromeOptions.CAPABILITY, options);
-
                     driver = new RemoteWebDriver(new URL(URL), caps);
                 }else {
                     if (headless.equalsIgnoreCase("yes")) {
@@ -132,11 +135,39 @@ public class ParentClass {
                     options.addArguments("--window-size=1600x900");
                     driver = new ChromeDriver(options);
                 }
-
-                // country = "sg".toLowerCase();
-                country = System.getProperty("country").toLowerCase();
-                System.out.println("Country: " + country);
             }
+//            else if (readApplicationFile("browser", path).equalsIgnoreCase("firefox")) {
+//                FirefoxOptions options = new FirefoxOptions();
+//                    //Check if execution is meant to be run or browserStackExecution or in a natural way
+//                    if (readApplicationFile("browserStackExecution", path).equalsIgnoreCase("yes")) {
+//                        options.setCapability("os", readApplicationFile("os", path));
+//                        options.setCapability("os_version", readApplicationFile("os_version", path));
+//                        options.setCapability("browser", readApplicationFile("browser", path));
+//                        options.setCapability("browser_version", readApplicationFile("browser_version", path));
+//                        options.setCapability("project", "Standard Chartered");
+//                        options.setCapability("build", "1");
+//                        options.setCapability("name", "ST");
+//                        options.setCapability("browserstack.local", "true");
+//                        options.setCapability("browserstack.debug", "true");
+//                        options.setCapability("browserstack.networkLogs", "true");
+//                        options.setCapability("browserstack.selenium_version", "3.14.0");
+//                        options.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+//                        driver = new RemoteWebDriver(new URL(URL), options);
+//                    }else {
+//                        if (headless.equalsIgnoreCase("yes")) {
+//                            options.addArguments("--headless");
+//                        }
+//                        options.addArguments("--no-sandbox");
+//                        options.addArguments("--disable-gpu");
+//                        options.addArguments("--incognito");
+//                        options.addArguments("--disable-dev-shm-usage");
+//                        options.addArguments("--window-size=1600x900");
+//                        driver = new FirefoxDriver(options);
+//                    }
+//                }
+            //country = "sg".toLowerCase();
+            country = System.getProperty("country").toLowerCase();
+            System.out.println("Country: " + country);
         }
         ExecutionLog.log("Browser has been initiated successfully");
         driver.manage().window().maximize();
@@ -144,6 +175,7 @@ public class ParentClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
         waitForAlert = new WebDriverWait(driver, 3);
+        longWait = new WebDriverWait(driver, 120);
 
         countryArray = country.split(",");
         for (int i = 0; i < countryArray.length; i++) {

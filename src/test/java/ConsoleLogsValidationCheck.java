@@ -1,6 +1,9 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -45,12 +48,29 @@ public class ConsoleLogsValidationCheck extends ParentClass {
                     writer.println();
                     new WebDriverWait(driver, 60).until(webDriver ->
                             js.executeScript("return document.readyState").equals("complete"));
-//                    if(driver.findElements(By.cssSelector(".sc-nav")).size() > 0){
-//                        ((JavascriptExecutor) driver).executeScript("arguments[0].style.visibility='hidden'", driver.findElement(By.cssSelector(".sc-nav")));
-//                        if(driver.findElements(By.cssSelector(".sc-nav__open-account")).size() > 0)
-//                            ((JavascriptExecutor) driver).executeScript("arguments[0].style.visibility='hidden'", driver.findElement(By.cssSelector(".sc-nav__open-account")));
+                    if(driver.findElements(By.cssSelector(".sc-nav__wrapper")).size() > 0){
+                        ((JavascriptExecutor) driver).executeScript("arguments[0].style.position='initial'", driver.findElement(By.cssSelector(".sc-nav__wrapper")));
+                    }else if(driver.findElements(By.cssSelector(".sc-hdr__wrapper.sc-hdr__container")).size() > 0){
+                        ((JavascriptExecutor) driver).executeScript("arguments[0].style.position='initial'", driver.findElement(By.cssSelector(".sc-hdr__wrapper.sc-hdr__container")));
+                    }
+
+//                    dir = new File(directoryPath + "" + File.separator + "Desktop Screenshots");
+//                    dir.mkdir();
+//                    File src = ((FirefoxDriver)driver).getFullPageScreenshotAs(OutputType.FILE);
+//                    FileHandler.copy(src, new File(directoryPath + "" + File.separator + "Desktop Screenshots" + File.separator + newUrl.replaceAll("[^a-zA-Z0-9]", "_")+".png"));
+
+
+//                    if(driver.findElements(By.xpath("//div[@class='sc-alert']//button | //div[@class='m-warning-alert active']//a[@class='close-btn']")).size() > 0){
+//                        driver.findElement(By.xpath("//div[@class='sc-alert']//button | //div[@class='m-warning-alert active']//a[@class='close-btn']")).click();
 //                    }
-                    Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+
+                    if(driver.findElements(By.cssSelector(".sc-alert")).size() > 0)
+                        ((JavascriptExecutor) driver).executeScript("arguments[0].style.visibility='hidden'", driver.findElement(By.cssSelector(".sc-alert")));
+                    else                     if(driver.findElements(By.cssSelector(".m-warning-alert.active, .m-warning-alert.visible")).size() > 0)
+                        ((JavascriptExecutor) driver).executeScript("arguments[0].style.visibility='hidden'", driver.findElement(By.cssSelector(".m-warning-alert.active, .m-warning-alert.visible")));
+
+
+                    Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
                     BufferedImage image = screenshot.getImage();
                     dir = new File(directoryPath + "" + File.separator + "Desktop Screenshots");
                     dir.mkdir();
