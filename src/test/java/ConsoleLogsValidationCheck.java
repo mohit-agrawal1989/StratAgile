@@ -70,7 +70,7 @@ public class ConsoleLogsValidationCheck extends ParentClass {
                         ((JavascriptExecutor) driver).executeScript("arguments[0].style.visibility='hidden'", driver.findElement(By.cssSelector(".m-warning-alert.active, .m-warning-alert.visible")));
 
 
-                    Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+                    Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(ShootingStrategies.scaling(2f), 1000)).takeScreenshot(driver);
                     BufferedImage image = screenshot.getImage();
                     dir = new File(directoryPath + "" + File.separator + "Desktop Screenshots");
                     dir.mkdir();

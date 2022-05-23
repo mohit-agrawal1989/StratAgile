@@ -60,7 +60,7 @@ public class ResponseDimensionCheckBrokenLinks extends ParentClass {
                         ExecutionLog.log("Current window has been resized to the dimension of "+splitResponsiveDeviceAndResolution[0]+": "+splitResolution[0]+"*"+splitResolution[0]+"");
                         driver.manage().window().setSize(dimension);
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'hamburger only-mobile')]|//button[contains(@class,'hamburger no-desktop')]")));
-                        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+                        Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(ShootingStrategies.scaling(2f), 1000)).takeScreenshot(driver);
                         BufferedImage image = screenshot.getImage();
                         dir = new File(directoryPath + "" + File.separator + "ResponsiveUI" + File.separator + splitResponsiveDeviceAndResolution[0] + File.separator + "Screenshots");
                         dir.mkdir();
